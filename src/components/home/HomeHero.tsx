@@ -15,6 +15,12 @@ export function HomeHero() {
           eyebrow={
             <div className="flex items-center gap-2.5">
               <span className="w-5 h-[1.5px] bg-[#A67C37]" />
+              <span className="font-sans text-[11px] sm:text-xs font-extrabold tracking-[0.2em] uppercase text-[#D62839]">
+                CHAPTER 01
+              </span>
+              <span className="text-[#A67C37] text-xs" aria-hidden="true">
+                &bull;
+              </span>
               <span className="font-sans text-[11px] sm:text-xs font-extrabold tracking-[0.2em] uppercase text-[#0B2A6B]">
                 5e SERPRAISE &bull; ESTABLISHED 2003
               </span>

@@ -3,11 +3,13 @@ import { HomeHero } from "@/components/home/HomeHero";
 import { ClientMarquee } from "@/components/ui/ClientMarquee";
 import { FiveEFrameworkJourney } from "@/components/home/FiveEFrameworkJourney";
 import { TrustedOrganizations } from "@/components/home/TrustedOrganizations";
+import { ProgrammeConsultationSelector } from "@/components/home/ProgrammeConsultationSelector";
+import { InteractiveProgrammeExplorer } from "@/components/home/InteractiveProgrammeExplorer";
+import { InteractiveMethodology } from "@/components/home/InteractiveMethodology";
+import { ODInteractiveExplorer } from "@/components/home/ODInteractiveExplorer";
 import { HomePurpose } from "@/components/home/HomePurpose";
 import { HeritageTimeline } from "@/components/home/HeritageTimeline";
-import { QuoteBand } from "@/components/ui/QuoteBand";
-import { HomeTrainingPreview } from "@/components/home/HomeTrainingPreview";
-import { HomeMethodology } from "@/components/home/HomeMethodology";
+import { InteractiveQuote } from "@/components/ui/InteractiveQuote";
 import { HomeCTA } from "@/components/home/HomeCTA";
 
 export const metadata: Metadata = {
@@ -19,34 +21,45 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#EFE6D6]">
-      {/* 1. Hero with ArchPanel & India/Australia positioning */}
+      {/* CHAPTER 01: Hero & Purpose */}
       <HomeHero />
 
-      {/* 2. Full-Width Navy Client Marquee with Double Brass Borders */}
+      {/* Verified Baseline Credibility Band */}
       <ClientMarquee />
 
-      {/* 3. The 5E Framework Journey (E1 Educate to E5 Energise) */}
+      {/* CHAPTER 02: The 5E Framework Journey (E1 to E5) */}
       <FiveEFrameworkJourney />
 
-      {/* 4. Organizations We've Served (Editorial Credibility Section) */}
+      {/* CHAPTER 03: Organizations We've Served */}
       <TrustedOrganizations />
 
-      {/* 5. Purpose & Philosophy: Vision (Service + Praise) & Mission (Enriching Everyone) */}
+      {/* CHAPTER 04: "What Are You Trying to Transform?" Consultation Selector */}
+      <ProgrammeConsultationSelector />
+
+      {/* The Four Flagships Interactive Explorer (LILLY, GOTEL, SALAM, COPPTER) */}
+      <InteractiveProgrammeExplorer />
+
+      {/* CHAPTER 04B: Training Methodology (01 Learn, 02 Measure, 03 Experience) */}
+      <InteractiveMethodology />
+
+      {/* CHAPTER 05: Organizational Development Interactive Explorer & 5-Stage Growth Journey */}
+      <ODInteractiveExplorer />
+
+      {/* CHAPTER 06: Our Thinking (4-Dimension Mission: Intellectually, Financially, Emotionally, Spiritually) */}
       <HomePurpose />
 
-      {/* 6. Heritage Timeline & India × Australia Bridge */}
+      {/* CHAPTER 07: Heritage Timeline (2003 -> India -> Australia -> Today) & India × Australia Bridge */}
       <HeritageTimeline />
 
-      {/* 7. Full-Width Navy Quote Band with Double Brass Borders */}
-      <QuoteBand />
+      {/* Editorial Reflection: Interactive Brand Quote */}
+      <InteractiveQuote
+        quote="Helping people to identify their ultimate purpose in life and enable them to assertively follow the same towards success and happiness."
+        attribution="5e SERPRAISE"
+        subAttribution="CORE GUIDING PURPOSE &amp; PHILOSOPHY"
+        chapter="EDITORIAL REFLECTION"
+      />
 
-      {/* 8. Training Preview with Editorial Program Rows */}
-      <HomeTrainingPreview />
-
-      {/* 9. Training Methodology (3 Numbered Blocks) */}
-      <HomeMethodology />
-
-      {/* 10. Get in Touch CTA */}
+      {/* CHAPTER 08: Initiate the Conversation CTA */}
       <HomeCTA />
     </div>
   );

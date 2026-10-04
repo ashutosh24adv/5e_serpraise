@@ -3,10 +3,11 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Container } from "../layout/Container";
+import { ChapterLabel } from "../ui/ChapterLabel";
 import { Button } from "../ui/Button";
 import { siteConfig } from "@/content/site";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, BookOpen, Layers, Compass, Heart, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpen, Layers, Compass, Heart, Sparkles, CheckCircle2 } from "lucide-react";
 
 export function FiveEFrameworkJourney() {
   const [activeCode, setActiveCode] = useState("E1");
@@ -19,6 +20,39 @@ export function FiveEFrameworkJourney() {
     Sparkles,
   };
 
+  const pillarCapabilities: Record<string, string[]> = {
+    E1: [
+      "Experiential Adult Learning & PGL Methods",
+      "LILLY (Individual Development & Purpose)",
+      "GOTEL (Team Synergy & Goal Orientation)",
+      "SALAM & COPPTER (Leadership & Business Results)",
+    ],
+    E2: [
+      "Organizational Development & Culture Building",
+      "Assessment Centers & Competency Mapping",
+      "Performance Appraisal Systems Formulation",
+      "E2 Retainership for Growing SMEs",
+    ],
+    E3: [
+      "Annual Business Meets & Experiential Outbounds",
+      "Team Cohesion & Celebration Frameworks",
+      "Executive Offsites & Strategic Alignment",
+      "High-Synergy Organizational Experiences",
+    ],
+    E4: [
+      "Empathetic Workplace Culture & Counseling",
+      "Conflict Resolution & Mentorship Interventions",
+      "Social Impact & Community Engagement",
+      "Human-Centric People Systems",
+    ],
+    E5: [
+      "Purpose Unification & Life Leadership",
+      "Sales Energisation & Communication Labs",
+      "Strategic CASE for HR Decision Makers",
+      "Values-Driven Institutional Vitality",
+    ],
+  };
+
   const activePillar =
     siteConfig.fiveEPillars.find((p) => p.code === activeCode) ||
     siteConfig.fiveEPillars[0];
@@ -26,21 +60,20 @@ export function FiveEFrameworkJourney() {
   const IconComponent = iconMap[activePillar.iconName] || BookOpen;
 
   return (
-    <section className="py-[80px] bg-[#EFE6D6] border-t border-[#A67C37]/40" id="framework">
+    <section className="py-[84px] bg-[#EFE6D6] border-t border-[#A67C37]/40" id="framework">
       <Container size="wide">
-        {/* Section Heading */}
+        {/* Chapter Eyebrow & Header */}
         <div className="mb-[36px] space-y-2">
-          <div className="flex items-center gap-2">
-            <span className="w-4 h-[1.5px] bg-[#A67C37]" />
-            <span className="font-sans text-[11px] font-extrabold tracking-[0.2em] uppercase text-[#0B2A6B]">
-              THE 5E ARCHITECTURE
-            </span>
-          </div>
+          <ChapterLabel
+            number="02"
+            title="THE FIVE PILLARS OF CAPABILITY"
+            subtitle="The core intellectual framework uniting human purpose with enterprise capability."
+          />
           <h2 className="font-serif font-extrabold text-[clamp(30px,4.5vw,48px)] leading-[1.08] tracking-tight text-[#0B2A6B]">
-            The five pillars of capability.
+            The 5E Architecture.
           </h2>
-          <p className="font-sans text-[16px] text-[#15151A]/80 max-w-[54ch]">
-            The 5E framework is the core intellectual foundation of 5e Serpraise &mdash; an integrated continuum from individual purpose to organizational vitality.
+          <p className="font-sans text-[16px] text-[#15151A]/85 max-w-[60ch]">
+            An integrated continuum from individual purpose to organizational vitality. Click each pillar below to discover how 5e Serpraise builds enduring institutional capacity.
           </p>
         </div>
 
@@ -61,7 +94,7 @@ export function FiveEFrameworkJourney() {
               >
                 {/* Active Vermilion Top Marker */}
                 {isActive && (
-                  <span className="absolute top-0 left-0 right-0 h-1 bg-[#D62839]" />
+                  <span className="absolute top-0 left-0 right-0 h-1.5 bg-[#D62839]" />
                 )}
 
                 <div className="flex items-center justify-between mb-2">
@@ -113,7 +146,7 @@ export function FiveEFrameworkJourney() {
               className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
             >
               {/* Left Details */}
-              <div className="lg:col-span-8 space-y-4">
+              <div className="lg:col-span-8 space-y-5">
                 <div className="flex items-center gap-3">
                   <span className="font-serif font-extrabold text-3xl sm:text-4xl text-[#D62839]">
                     {activePillar.code}
@@ -132,7 +165,17 @@ export function FiveEFrameworkJourney() {
                   {activePillar.description}
                 </p>
 
-                <div className="pt-3 flex flex-wrap items-center gap-5">
+                {/* Key Deliverables / Capabilities List */}
+                <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-w-[620px]">
+                  {(pillarCapabilities[activePillar.code] || []).map((cap, i) => (
+                    <div key={i} className="flex items-start gap-2 text-xs sm:text-[13px] font-sans text-[#15151A]/85">
+                      <CheckCircle2 className="w-4 h-4 text-[#D62839] flex-shrink-0 mt-0.5" />
+                      <span>{cap}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-4 flex flex-wrap items-center gap-5">
                   <Button href={activePillar.href} variant="primary">
                     Explore {activePillar.name}
                   </Button>

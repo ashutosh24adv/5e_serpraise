@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "../layout/Container";
+import { ChapterLabel } from "../ui/ChapterLabel";
 import { Button } from "../ui/Button";
 
 export function HomeCTA() {
@@ -7,13 +8,12 @@ export function HomeCTA() {
     <section className="py-[72px] bg-[#EFE6D6] border-t border-[#A67C37]/40 text-center" id="contact">
       <Container size="narrow">
         <div className="space-y-6">
-          <div className="flex items-center justify-center gap-2">
-            <span className="w-3 h-[1.5px] bg-[#A67C37]" />
-            <span className="font-sans text-[11px] font-extrabold tracking-[0.2em] uppercase text-[#0B2A6B]">
-              GET IN TOUCH
-            </span>
-            <span className="w-3 h-[1.5px] bg-[#A67C37]" />
-          </div>
+          <ChapterLabel
+            number="08"
+            title="INITIATE THE CONVERSATION"
+            subtitle="Begin your organization's capability transformation with 5e Serpraise."
+            align="center"
+          />
 
           <h2 className="font-serif font-extrabold text-[clamp(28px,4.5vw,48px)] leading-[1.08] tracking-tight text-[#0B2A6B]">
             Ready to strengthen your organization?

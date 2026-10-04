@@ -80,14 +80,12 @@ export const siteConfig: SiteConfig = {
   contactEmail: "contact@5eserpraise.com",
   locations: ["India (Est. 2003)", "Australia"],
   navItems: [
-    { label: "Training", href: "/training", isPrimary: true },
+    { label: "Training (E1)", href: "/training", isPrimary: true },
     { label: "Custom Programs", href: "/custom-programs", isPrimary: true },
-    { label: "OD Projects", href: "/od-projects", isPrimary: true },
-    { label: "Gallery", href: "#gallery" },
-    { label: "About", href: "#about" },
-    { label: "Events", href: "#events" },
-    { label: "Social Service", href: "#social-service" },
-    { label: "Clients", href: "#clients" },
+    { label: "OD Projects (E2)", href: "/od-projects", isPrimary: true },
+    { label: "5E Architecture", href: "/#framework" },
+    { label: "Clients", href: "/#clients" },
+    { label: "Heritage", href: "/#about" },
   ],
   credibility: [
     {
