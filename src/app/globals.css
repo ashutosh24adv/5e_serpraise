@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #0B2A6B;
+  --vermilion: #E63946;
+  --vermilion-deep: #D62839;
+  --brass: #A67C37;
+  --sand: #EFE6D6;
+  --sand-subtle: #E8DECC;
+  --sand-card: #F7F1E6;
+  --ink: #15151A;
+
+  --serif: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --sans: var(--font-manrope), "Manrope", "Helvetica Neue", Arial, sans-serif;
+
+  --max: 1040px;
+  --gap: 14px;
+  --radius: 0px;
+}
+
+@theme {
+  --color-navy: #0B2A6B;
+  --color-vermilion: #E63946;
+  --color-vermilion-deep: #D62839;
+  --color-brass: #A67C37;
+  --color-sand: #EFE6D6;
+  --color-sand-subtle: #E8DECC;
+  --color-sand-card: #F7F1E6;
+  --color-ink: #15151A;
+
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  border-radius: 0 !important;
+}
+
+/* Allow explicit arch and circle shapes */
+.allow-radius,
+.arch-shape,
+.arch-shape *,
+.circle-shape,
+.rounded-full {
+  border-radius: inherit !important;
+}
+.arch-shape {
+  border-radius: 999px 999px 0 0 !important;
+}
+.circle-shape {
+  border-radius: 9999px !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--sand);
+}
+
+body {
+  margin: 0;
+  background-color: var(--sand);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--serif);
+  color: var(--navy);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background-color: var(--navy);
+  color: var(--sand);
+}
+
+/* 3px Double Brass Rule */
+.double-brass-border-b {
+  border-bottom: 3px double var(--brass);
+}
+
+.double-brass-border-t {
+  border-top: 3px double var(--brass);
+}
+
+.double-brass-border-y {
+  border-top: 3px double var(--brass);
+  border-bottom: 3px double var(--brass);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sand);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brass);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--navy);
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+  }
+}

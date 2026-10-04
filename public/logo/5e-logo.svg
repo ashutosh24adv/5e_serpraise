@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 560" width="100%" height="100%">
+  <defs>
+    <filter id="subtle-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Outer Red Pentagon Border -->
+  <polygon points="250,15 485,185 395,490 105,490 15,185" fill="#E63946" />
+
+  <!-- Inner Navy Blue Pentagon -->
+  <polygon points="250,45 455,193 376,462 124,462 45,193" fill="#2E2F63" />
+
+  <!-- White Scalloped / Rosette Circle Ring -->
+  <g transform="translate(250, 260)">
+    <!-- 24 scalloped petals creating the rosette ring -->
+    <path d="
+      M 0,-150
+      A 22,22 0 0,1 38.8,-144.9
+      A 22,22 0 0,1 75,-129.9
+      A 22,22 0 0,1 106.1,-106.1
+      A 22,22 0 0,1 129.9,-75
+      A 22,22 0 0,1 144.9,-38.8
+      A 22,22 0 0,1 150,0
+      A 22,22 0 0,1 144.9,38.8
+      A 22,22 0 0,1 129.9,75
+      A 22,22 0 0,1 106.1,106.1
+      A 22,22 0 0,1 75,129.9
+      A 22,22 0 0,1 38.8,144.9
+      A 22,22 0 0,1 0,150
+      A 22,22 0 0,1 -38.8,144.9
+      A 22,22 0 0,1 -75,129.9
+      A 22,22 0 0,1 -106.1,106.1
+      A 22,22 0 0,1 -129.9,75
+      A 22,22 0 0,1 -144.9,38.8
+      A 22,22 0 0,1 -150,0
+      A 22,22 0 0,1 -144.9,-38.8
+      A 22,22 0 0,1 -129.9,-75
+      A 22,22 0 0,1 -106.1,-106.1
+      A 22,22 0 0,1 -75,-129.9
+      A 22,22 0 0,1 -38.8,-144.9
+      Z"
+      fill="none"
+      stroke="#FFFFFF"
+      stroke-width="13"
+      stroke-linejoin="round"
+      stroke-linecap="round"
+    />
+  </g>
+
+  <!-- Stylized Elegant Cursive '5E' Inscription -->
+  <g fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Digit 5 in elegant fluid script -->
+    <path d="M 215,190 C 190,195 160,205 140,240 C 135,250 148,252 165,246 C 192,238 215,252 210,285 C 205,315 175,335 140,330 C 122,327 112,312 120,302 C 128,292 142,300 148,304 C 162,312 182,306 186,285 C 190,265 174,258 152,260 C 130,262 118,245 125,225 C 135,195 175,178 222,174" 
+          stroke-width="15" fill="#FFFFFF" fill-rule="evenodd" />
+
+    <!-- Script letter E with fluid loop connecting backwards/forwards -->
+    <path d="M 215,230 C 235,185 295,170 335,190 C 365,205 372,235 345,255 C 315,270 260,265 240,275 C 220,285 220,315 245,330 C 280,350 330,340 360,295 C 366,286 376,294 370,304 C 342,352 280,370 230,345 C 195,325 195,280 230,260 C 265,245 330,245 342,228 C 352,212 335,195 305,192 C 265,188 225,215 210,235 Z" 
+          stroke-width="6" fill="#FFFFFF" />
+  </g>
+</svg>
