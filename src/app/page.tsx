@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { StoryChapterTracker } from "@/components/ui/StoryChapterTracker";
 import { HomeHero } from "@/components/home/HomeHero";
 import { ClientMarquee } from "@/components/ui/ClientMarquee";
 import { FiveEFrameworkJourney } from "@/components/home/FiveEFrameworkJourney";
@@ -20,7 +21,10 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#EFE6D6]">
+    <div className="flex flex-col min-h-screen bg-[#EFE6D6] relative">
+      {/* Story Chapter Floating Progress Tracker */}
+      <StoryChapterTracker />
+
       {/* CHAPTER 01: Hero & Purpose */}
       <HomeHero />
 

@@ -9,7 +9,7 @@ import { siteConfig } from "@/content/site";
 
 export function HomeHero() {
   return (
-    <section className="relative w-full py-14 sm:py-18 lg:py-[80px] bg-[#EFE6D6] overflow-hidden">
+    <section className="relative w-full py-14 sm:py-18 lg:py-[80px] bg-[#EFE6D6] overflow-hidden" id="hero">
       <Container size="wide">
         <HeroSequence
           eyebrow={
