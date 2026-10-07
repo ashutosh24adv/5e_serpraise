@@ -16,7 +16,7 @@ export function ContactHeader() {
             />
 
             <h1 className="font-serif font-extrabold text-[clamp(36px,5.5vw,56px)] leading-[1.06] tracking-tight text-[#0B2A6B]">
-              Connect With Our OD Specialists
+              Connect With 5e Specialist
             </h1>
 
             <div className="w-16 h-[2px] bg-[#A67C37]" />

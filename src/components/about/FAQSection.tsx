@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Container } from "../layout/Container";
 import { SectionLabel } from "../ui/SectionLabel";
 import { HeritageDivider } from "../ui/HeritageDivider";
-import { aboutContent, FAQItem } from "@/content/about";
+import { aboutContent } from "@/content/about";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Plus, Minus, HelpCircle } from "lucide-react";
 

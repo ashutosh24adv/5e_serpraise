@@ -7,7 +7,7 @@ export function FourDimensionsMatrix() {
   const { purpose } = siteConfig;
 
   return (
-    <section className="py-16 bg-[#F7F1E6] border-b border-[#A67C37]/30">
+    <section id="dimensions" className="py-16 bg-[#F7F1E6] border-b border-[#A67C37]/30">
       <Container size="wide">
         <div className="space-y-4 mb-12">
           <SectionLabel
