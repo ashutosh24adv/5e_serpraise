@@ -3,7 +3,6 @@ import { HomeHero } from "@/components/home/HomeHero";
 import { ClientMarquee } from "@/components/ui/ClientMarquee";
 import { FiveEFrameworkJourney } from "@/components/home/FiveEFrameworkJourney";
 import { ProgrammeConsultationSelector } from "@/components/home/ProgrammeConsultationSelector";
-import { InteractiveProgrammeExplorer } from "@/components/home/InteractiveProgrammeExplorer";
 import { InteractiveMethodology } from "@/components/home/InteractiveMethodology";
 import { ODInteractiveExplorer } from "@/components/home/ODInteractiveExplorer";
 import { HomePurpose } from "@/components/home/HomePurpose";
@@ -29,11 +28,8 @@ export default function HomePage() {
       {/* The 5E Framework Journey (E1 to E5) */}
       <FiveEFrameworkJourney />
 
-      {/* "What Are You Trying to Transform?" Consultation Selector */}
+      {/* Proprietary Training Programmes Consultation Selector */}
       <ProgrammeConsultationSelector />
-
-      {/* The Four Flagships Interactive Explorer (LILLY, GOTEL, SALAM, COPPTER) */}
-      <InteractiveProgrammeExplorer />
 
       {/* Training Methodology */}
       <InteractiveMethodology />
