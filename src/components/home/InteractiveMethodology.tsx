@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Container } from "../layout/Container";
-import { ChapterLabel } from "../ui/ChapterLabel";
+import { SectionLabel } from "../ui/SectionLabel";
 import { trainingMethodologies } from "@/content/programmes";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Gamepad2, BrainCircuit, Activity, CheckCircle2 } from "lucide-react";
@@ -52,8 +52,7 @@ export function InteractiveMethodology() {
       <Container size="wide">
         {/* Section Heading */}
         <div className="text-center max-w-[720px] mx-auto space-y-3 mb-10">
-          <ChapterLabel
-            number="04B"
+          <SectionLabel
             title="THE PEDAGOGICAL STANDARD"
             subtitle="How 5e Serpraise turns experiential immersion into lasting organizational behavior."
             align="center"

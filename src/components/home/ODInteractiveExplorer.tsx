@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Container } from "../layout/Container";
-import { ChapterLabel } from "../ui/ChapterLabel";
+import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
 import { odGroups } from "@/content/od-projects";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
@@ -48,8 +48,7 @@ export function ODInteractiveExplorer() {
       <Container size="wide">
         {/* Header */}
         <div className="space-y-3 mb-10 max-w-[760px]">
-          <ChapterLabel
-            number="05"
+          <SectionLabel
             title="STRENGTHENING ORGANIZATIONS (E2 • ENRICH)"
             subtitle="Organizational Development, Culture Building & Institutional Systems"
           />

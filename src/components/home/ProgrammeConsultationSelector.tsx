@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Container } from "../layout/Container";
-import { ChapterLabel } from "../ui/ChapterLabel";
+import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
 import { corePrograms } from "@/content/programmes";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
@@ -52,8 +52,7 @@ export function ProgrammeConsultationSelector() {
       <Container size="wide">
         {/* Header */}
         <div className="text-center max-w-[760px] mx-auto space-y-3 mb-10">
-          <ChapterLabel
-            number="04"
+          <SectionLabel
             title="DEVELOPING HUMAN CAPABILITY"
             subtitle="Interactive Consultation & Flagship Programmes"
             align="center"
@@ -178,7 +177,7 @@ export function ProgrammeConsultationSelector() {
                     Discover {matchedProgram.name}
                   </Button>
                   <Link
-                    href="/#contact"
+                    href="/contact"
                     className="inline-flex items-center gap-1.5 text-[#0B2A6B] font-sans font-bold text-[14px] underline decoration-[#A67C37] decoration-2 underline-offset-[5px] hover:text-[#D62839] transition-colors"
                   >
                     <span>Request Programme Outline</span>

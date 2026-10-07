@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Container } from "../layout/Container";
-import { ChapterLabel } from "../ui/ChapterLabel";
+import { SectionLabel } from "../ui/SectionLabel";
 import { HeritageDivider } from "../ui/HeritageDivider";
 import { siteConfig } from "@/content/site";
 import { motion, useReducedMotion } from "framer-motion";
@@ -53,8 +53,7 @@ export function TrustedOrganizations() {
       <Container size="wide">
         {/* Section Header */}
         <div className="text-center max-w-[760px] mx-auto space-y-3">
-          <ChapterLabel
-            number="03"
+          <SectionLabel
             title="ORGANIZATIONS WE'VE SERVED"
             subtitle="Two decades of proven corporate consulting across India and Australia."
             align="center"

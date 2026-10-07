@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Container } from "../layout/Container";
-import { ChapterLabel } from "../ui/ChapterLabel";
+import { SectionLabel } from "../ui/SectionLabel";
 import { HeritageDivider } from "../ui/HeritageDivider";
 import { siteConfig } from "@/content/site";
 import { motion, AnimatePresence } from "framer-motion";
@@ -18,8 +18,7 @@ export function HomePurpose() {
 
         {/* Section Heading */}
         <div className="my-[32px] text-center space-y-3 max-w-[760px] mx-auto">
-          <ChapterLabel
-            number="06"
+          <SectionLabel
             title="OUR THINKING &amp; PHILOSOPHY"
             subtitle="The foundational ethos behind every 5e Serpraise intervention."
             align="center"

@@ -1,7 +1,13 @@
+export interface NavDropdownItem {
+  label: string;
+  href: string;
+}
+
 export interface NavItem {
   label: string;
   href: string;
   isPrimary?: boolean;
+  children?: NavDropdownItem[];
 }
 
 export interface CredibilityItem {
@@ -81,11 +87,22 @@ export const siteConfig: SiteConfig = {
   locations: ["India (Est. 2003)", "Australia"],
   navItems: [
     { label: "Training (E1)", href: "/training", isPrimary: true },
-    { label: "Custom Programs", href: "/custom-programs", isPrimary: true },
+    { label: "Custom Program (E1)", href: "/custom-programs", isPrimary: true },
     { label: "OD Projects (E2)", href: "/od-projects", isPrimary: true },
-    { label: "5E Architecture", href: "/#framework" },
-    { label: "Clients", href: "/#clients" },
-    { label: "Heritage", href: "/#about" },
+    { label: "5E Architecture", href: "/5e-architecture" },
+    { label: "Clients", href: "/clients" },
+    {
+      label: "About Us",
+      href: "/about",
+      children: [
+        { label: "Mission & Vision", href: "/about#mission-vision" },
+        { label: "Team", href: "/about#team" },
+        { label: "FAQ", href: "/about#faq" },
+        { label: "Heritage", href: "/about#heritage" },
+      ],
+    },
+    { label: "Gallery", href: "/gallery" },
+    { label: "Blogs", href: "/blogs" },
   ],
   credibility: [
     {

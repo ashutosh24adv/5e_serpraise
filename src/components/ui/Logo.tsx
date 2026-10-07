@@ -21,11 +21,11 @@ export function Logo({
     >
       <div className="relative flex-shrink-0 flex items-center justify-center">
         <Image
-          src="/logo/5e-logo.svg"
-          alt="5e Serpraise Seal"
-          width={34}
-          height={38}
-          className="w-auto h-[36px]"
+          src="/logo/5e-logo.png"
+          alt="5e Serpraise Logo"
+          width={40}
+          height={40}
+          className="w-[38px] h-[38px] object-contain"
           priority
         />
       </div>

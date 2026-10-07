@@ -15,12 +15,6 @@ export function HomeHero() {
           eyebrow={
             <div className="flex items-center gap-2.5">
               <span className="w-5 h-[1.5px] bg-[#A67C37]" />
-              <span className="font-sans text-[11px] sm:text-xs font-extrabold tracking-[0.2em] uppercase text-[#D62839]">
-                CHAPTER 01
-              </span>
-              <span className="text-[#A67C37] text-xs" aria-hidden="true">
-                &bull;
-              </span>
               <span className="font-sans text-[11px] sm:text-xs font-extrabold tracking-[0.2em] uppercase text-[#0B2A6B]">
                 5e SERPRAISE &bull; ESTABLISHED 2003
               </span>
@@ -42,12 +36,12 @@ export function HomeHero() {
             </p>
           }
           actions={
-            <div className="flex flex-wrap items-center gap-5 pt-2">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-5 pt-2">
               <Button href="/training" variant="primary">
                 Explore Training
               </Button>
-              <Button href="/od-projects" variant="secondary-link">
-                Explore OD Projects
+              <Button href="/contact" variant="primary">
+                Book 5e Consultation
               </Button>
             </div>
           }

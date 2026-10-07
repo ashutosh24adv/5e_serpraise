@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Container } from "../layout/Container";
-import { ChapterLabel } from "../ui/ChapterLabel";
+import { SectionLabel } from "../ui/SectionLabel";
 import { IndiaAustraliaBridge } from "../ui/IndiaAustraliaBridge";
 import { siteConfig } from "@/content/site";
 import { motion, useReducedMotion } from "framer-motion";
@@ -16,8 +16,7 @@ export function HeritageTimeline() {
       <Container size="wide">
         {/* Section Heading */}
         <div className="mb-[36px] space-y-3">
-          <ChapterLabel
-            number="07"
+          <SectionLabel
             title="HERITAGE &amp; INSTITUTIONAL TRUST"
             subtitle="Two decades of verified practice in human and organizational capability."
           />

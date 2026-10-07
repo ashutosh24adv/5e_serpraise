@@ -48,11 +48,11 @@ export function ArchPanel({
         <div className="relative z-10 flex flex-col items-center text-center pt-8 sm:pt-10">
           <div className="relative w-20 h-22 sm:w-24 sm:h-26 mb-3 transition-transform duration-500 group-hover:scale-105">
             <Image
-              src="/logo/5e-logo.svg"
-              alt="5e Serpraise Seal"
+              src="/logo/5e-logo.png"
+              alt="5e Serpraise Logo"
               width={96}
-              height={108}
-              className="w-full h-auto drop-shadow-none"
+              height={87}
+              className="w-full h-auto drop-shadow-none object-contain"
               priority
             />
           </div>

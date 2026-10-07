@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   description:
     "5e Serpraise is an established HR, Corporate Training, and Organizational Development consulting organization. Enriching people. Strengthening organizations since 2003 in India & Australia.",
   icons: {
-    icon: "/logo/5e-logo.svg",
-    apple: "/logo/5e-logo.svg",
+    icon: "/logo/5e-logo.png",
+    apple: "/logo/5e-logo.png",
   },
 };
 

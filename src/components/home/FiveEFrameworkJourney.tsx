@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Container } from "../layout/Container";
-import { ChapterLabel } from "../ui/ChapterLabel";
+import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
 import { siteConfig } from "@/content/site";
 import { motion, AnimatePresence } from "framer-motion";
@@ -62,10 +62,9 @@ export function FiveEFrameworkJourney() {
   return (
     <section className="py-[84px] bg-[#EFE6D6] border-t border-[#A67C37]/40" id="framework">
       <Container size="wide">
-        {/* Chapter Eyebrow & Header */}
+        {/* Section Eyebrow & Header */}
         <div className="mb-[36px] space-y-2">
-          <ChapterLabel
-            number="02"
+          <SectionLabel
             title="THE FIVE PILLARS OF CAPABILITY"
             subtitle="The core intellectual framework uniting human purpose with enterprise capability."
           />
@@ -180,7 +179,7 @@ export function FiveEFrameworkJourney() {
                     Explore {activePillar.name}
                   </Button>
                   <Link
-                    href="/#contact"
+                    href="/contact"
                     className="inline-flex items-center gap-1.5 text-[#0B2A6B] font-sans font-bold text-[15px] underline decoration-[#A67C37] decoration-2 underline-offset-[6px] hover:text-[#D62839] transition-colors"
                   >
                     <span>Discuss Requirements</span>

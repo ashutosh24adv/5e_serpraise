@@ -8,14 +8,14 @@ interface InteractiveQuoteProps {
   quote?: string;
   attribution?: string;
   subAttribution?: string;
-  chapter?: string;
+  eyebrow?: string;
 }
 
 export function InteractiveQuote({
   quote = "Helping people to identify their ultimate purpose in life and enable them to assertively follow the same towards success and happiness.",
   attribution = "5e SERPRAISE",
   subAttribution = "CORE GUIDING PURPOSE",
-  chapter = "EDITORIAL REFLECTION",
+  eyebrow = "EDITORIAL REFLECTION",
 }: InteractiveQuoteProps) {
   const shouldReduceMotion = useReducedMotion();
 
@@ -33,7 +33,7 @@ export function InteractiveQuote({
           >
             <span className="w-4 h-[1px] bg-[#A67C37]" />
             <span className="font-sans text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.25em] text-[#A67C37]">
-              {chapter}
+              {eyebrow}
             </span>
             <span className="w-4 h-[1px] bg-[#A67C37]" />
           </motion.div>
