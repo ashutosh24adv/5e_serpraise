@@ -1,0 +1,51 @@
+"use client";
+
+import React, { useState } from "react";
+import Image from "next/image";
+import { Building2 } from "lucide-react";
+import type { ClientItem } from "@/content/clients";
+
+interface ClientLogoCardProps {
+  client: ClientItem;
+}
+
+export function ClientLogoCard({ client }: ClientLogoCardProps) {
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <div
+      className="group bg-[#FCFAF6] border border-[#0B2A6B]/20 hover:border-[#0B2A6B] hover:shadow-md transition-all duration-300 p-3 sm:p-4 flex flex-col items-center justify-between min-h-[140px] text-center relative"
+      title={`${client.name} - ${client.category}`}
+    >
+      {/* Top Logo Container with controlled, clean viewport */}
+      <div className="w-full h-16 sm:h-20 flex items-center justify-center p-2 relative bg-white border border-[#A67C37]/15">
+        {!imageError ? (
+          <Image
+            src={client.logo}
+            alt={`${client.name} logo`}
+            width={140}
+            height={56}
+            className="max-h-12 sm:max-h-14 max-w-[130px] object-contain transition-transform duration-300 group-hover:scale-105"
+            style={{ width: "auto", height: "auto" }}
+            onError={() => setImageError(true)}
+          />
+        ) : (
+          <div className="flex flex-col items-center justify-center text-[#A67C37]">
+            <Building2 className="w-6 h-6 mb-1 opacity-70 group-hover:text-[#D62839] transition-colors" />
+            <span className="text-[10px] font-mono uppercase">{client.id}</span>
+          </div>
+        )}
+      </div>
+
+      {/* Client Label & Category */}
+      <div className="w-full mt-3 flex flex-col items-center justify-center">
+        <h4 className="font-serif font-bold text-xs sm:text-[13px] text-[#0B2A6B] group-hover:text-[#D62839] transition-colors line-clamp-1 leading-snug">
+          {client.name}
+        </h4>
+        <span className="font-sans text-[9px] uppercase tracking-wider text-[#15151A]/60 mt-0.5 line-clamp-1">
+          {client.category}
+        </span>
+      </div>
+    </div>
+  );
+}

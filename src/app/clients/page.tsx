@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ClientsHero } from "@/components/clients/ClientsHero";
-import { ClientMarquee } from "@/components/ui/ClientMarquee";
 import { ClientsRosterGrid } from "@/components/clients/ClientsRosterGrid";
 import { IndustrySectorsMatrix } from "@/components/clients/IndustrySectorsMatrix";
 import { QuoteBand } from "@/components/ui/QuoteBand";
@@ -18,10 +17,7 @@ export default function ClientsPage() {
       {/* 1. Hero */}
       <ClientsHero />
 
-      {/* 2. Client Marquee */}
-      <ClientMarquee />
-
-      {/* 3. Corporate Clients Full Roster Grid */}
+      {/* 2. Corporate Clients Full Roster Grid */}
       <ClientsRosterGrid />
 
       {/* 4. Industry Sectors & Key Engagements */}
