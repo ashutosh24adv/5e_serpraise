@@ -47,60 +47,35 @@ export function ProgrammeRecommendation() {
               <button
                 key={opt.id}
                 onClick={() => setSelectedOptionId(opt.id)}
-                className={`p-6 text-left border transition-all duration-300 relative focus:outline-none cursor-pointer flex flex-col justify-between select-none ${
-                  isSelected
-                    ? "bg-[#0B2A6B] text-white border-[#0B2A6B]"
-                    : "bg-[#EFE6D6] text-[#0B2A6B] border-[#0B2A6B]/30 hover:border-[#0B2A6B]"
-                }`}
+                className="p-6 text-left border border-[#0B2A6B]/30 hover:border-[#0B2A6B] bg-[#EFE6D6] text-[#0B2A6B] transition-colors duration-200 relative focus:outline-none cursor-pointer flex flex-col justify-between select-none"
                 aria-pressed={isSelected}
               >
-                {/* Active Top Vermilion Marker */}
-                {isSelected && (
-                  <span className="absolute top-0 left-0 right-0 h-1 bg-[#D62839]" />
-                )}
-
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span
-                      className={`font-sans text-[11px] font-bold tracking-[0.16em] uppercase ${
-                        isSelected ? "text-[#E5B869]" : "text-[#D62839]"
-                      }`}
-                    >
+                    <span className="font-sans text-[11px] font-bold tracking-[0.16em] uppercase text-[#D62839]">
                       Transformation Focus
                     </span>
                     <div
-                      className={`w-5 h-5 rounded-none border flex items-center justify-center ${
+                      className={`w-5 h-5 rounded-none border flex items-center justify-center transition-colors duration-200 ${
                         isSelected
                           ? "border-[#D62839] bg-[#D62839] text-white"
-                          : "border-[#0B2A6B]/40"
+                          : "border-[#0B2A6B]/40 bg-transparent"
                       }`}
                     >
                       {isSelected && <Check className="w-3.5 h-3.5" />}
                     </div>
                   </div>
 
-                  <h3
-                    className={`font-serif font-bold text-[19px] leading-snug ${
-                      isSelected ? "text-white" : "text-[#0B2A6B]"
-                    }`}
-                  >
+                  <h3 className="font-serif font-bold text-[19px] leading-snug text-[#0B2A6B]">
                     {opt.label}
                   </h3>
 
-                  <p
-                    className={`font-sans text-xs mt-2 leading-relaxed ${
-                      isSelected ? "text-[#EFE6D6]" : "text-[#15151A]/75"
-                    }`}
-                  >
+                  <p className="font-sans text-xs mt-2 leading-relaxed text-[#15151A]/75">
                     {opt.sublabel}
                   </p>
                 </div>
 
-                <div
-                  className={`pt-4 mt-4 border-t text-[11px] font-sans uppercase font-bold tracking-wider flex items-center justify-between ${
-                    isSelected ? "border-white/20 text-[#E5B869]" : "border-[#A67C37]/30 text-[#0B2A6B]"
-                  }`}
-                >
+                <div className="pt-4 mt-4 border-t border-[#A67C37]/30 text-[11px] font-sans uppercase font-bold tracking-wider text-[#0B2A6B] flex items-center justify-between">
                   <span>Flagship Fit</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
