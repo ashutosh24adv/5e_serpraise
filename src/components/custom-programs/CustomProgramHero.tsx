@@ -14,7 +14,7 @@ export function CustomProgramHero() {
       actions={
         <div className="flex flex-wrap items-center gap-5 pt-2">
           <Button
-            href="mailto:contact@5eserpraise.com?subject=Custom%20Training%20Requirements"
+            href="/contact"
             variant="primary"
           >
             Discuss Your Requirements

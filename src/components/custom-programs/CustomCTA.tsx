@@ -25,7 +25,7 @@ export function CustomCTA() {
 
           <div className="flex flex-wrap items-center justify-center gap-5 pt-3">
             <Button
-              href="mailto:contact@5eserpraise.com?subject=Custom%20Program%20Consultation"
+              href="/contact"
               variant="primary"
             >
               Discuss Your Requirements

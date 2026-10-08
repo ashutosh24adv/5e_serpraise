@@ -17,7 +17,7 @@ export function TrainingHero() {
             Explore Programs
           </Button>
           <Button
-            href="mailto:contact@5eserpraise.com?subject=Corporate%20Training%20Inquiry"
+            href="/contact"
             variant="secondary-link"
           >
             Discuss Your Training Needs

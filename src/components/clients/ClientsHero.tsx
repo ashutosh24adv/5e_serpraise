@@ -17,7 +17,7 @@ export function ClientsHero() {
             Explore Client Roster
           </Button>
           <Button
-            href="mailto:contact@5eserpraise.com?subject=Enterprise%20Client%20Inquiry"
+            href="/contact"
             variant="secondary-link"
           >
             Discuss an Enterprise Partnership

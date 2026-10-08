@@ -161,9 +161,7 @@ export function ProgrammeRecommendation() {
                     View {matchedProgram.name} Details
                   </Button>
                   <Button
-                    href={`mailto:contact@5eserpraise.com?subject=Consultation%20for%20${encodeURIComponent(
-                      matchedProgram.name
-                    )}`}
+                    href="/contact"
                     variant="secondary-link"
                   >
                     Discuss Organization Fit

@@ -18,7 +18,7 @@ export function GalleryHero() {
             Explore Photo Archive
           </Button>
           <Button
-            href="mailto:contact@5eserpraise.com?subject=Experiential%20Workshop%20Inquiry"
+            href="/contact"
             variant="secondary-link"
           >
             Discuss a Workshop

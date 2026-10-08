@@ -14,7 +14,7 @@ export function ODHero() {
       actions={
         <div className="flex flex-wrap items-center gap-5 pt-2">
           <Button
-            href="mailto:contact@5eserpraise.com?subject=OD%20Project%20Inquiry"
+            href="/contact"
             variant="primary"
           >
             Discuss an OD Project

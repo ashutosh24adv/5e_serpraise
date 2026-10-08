@@ -37,7 +37,7 @@ export function RetainershipSection() {
 
             <div className="pt-2">
               <Button
-                href="mailto:contact@5eserpraise.com?subject=E2%20Retainership%20Inquiry"
+                href="/contact"
                 variant="primary"
               >
                 Discuss Retainership

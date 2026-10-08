@@ -30,7 +30,7 @@ export function TrainingCTA() {
 
             <div className="flex flex-wrap items-center justify-center gap-5 pt-3">
               <Button
-                href="mailto:contact@5eserpraise.com?subject=Training%20Requirements%20Inquiry"
+                href="/contact"
                 variant="primary"
               >
                 Discuss Your Training Needs

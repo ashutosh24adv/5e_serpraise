@@ -81,9 +81,7 @@ export function ODServiceGroup() {
 
                     <div className="pt-4 mt-6 border-t border-[#A67C37]/30">
                       <Button
-                        href={`mailto:contact@5eserpraise.com?subject=OD%20Intervention%20Inquiry%20-%20${encodeURIComponent(
-                          service.title
-                        )}`}
+                        href="/contact"
                         variant="secondary-link"
                       >
                         Inquire about this Intervention

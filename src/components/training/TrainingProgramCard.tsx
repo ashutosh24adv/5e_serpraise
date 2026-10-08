@@ -43,9 +43,7 @@ export function TrainingProgramCard({
 
           <div className="pt-4">
             <Button
-              href={`mailto:contact@5eserpraise.com?subject=Inquiry%20about%20${encodeURIComponent(
-                program.name + " - " + program.fullName
-              )}`}
+              href="/contact"
               variant="primary"
             >
               Inquire About {program.name}
