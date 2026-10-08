@@ -19,7 +19,7 @@ export function ODHero() {
           >
             Discuss an OD Project
           </Button>
-          <Button href="#interventions" variant="secondary-link">
+          <Button href="#interventions" variant="primary">
             Explore Interventions
           </Button>
         </div>

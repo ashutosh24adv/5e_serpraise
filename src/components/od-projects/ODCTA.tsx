@@ -30,7 +30,7 @@ export function ODCTA() {
             >
               Discuss an OD Project
             </Button>
-            <Button href="/training" variant="secondary-link">
+            <Button href="/training" variant="primary">
               Explore Training Flagships
             </Button>
           </div>

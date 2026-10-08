@@ -19,7 +19,7 @@ export function AboutHero() {
           <Button href="#mission-vision" variant="primary">
             Mission &amp; Vision
           </Button>
-          <Button href="#team" variant="secondary-link">
+          <Button href="#team" variant="primary">
             Leadership Team
           </Button>
         </div>

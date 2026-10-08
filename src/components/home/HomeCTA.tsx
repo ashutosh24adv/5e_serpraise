@@ -31,7 +31,7 @@ export function HomeCTA() {
             <Button href="/contact" variant="primary">
               Book 5e Consultation
             </Button>
-            <Button href="/training" variant="secondary-link">
+            <Button href="/training" variant="primary">
               Explore Training Programs
             </Button>
           </div>

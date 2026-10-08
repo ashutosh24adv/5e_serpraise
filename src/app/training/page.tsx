@@ -4,7 +4,6 @@ import { TrainingHero } from "@/components/training/TrainingHero";
 import { HeritageDivider } from "@/components/ui/HeritageDivider";
 import { TrainingIntro } from "@/components/training/TrainingIntro";
 import { ProgrammeRecommendation } from "@/components/training/ProgrammeRecommendation";
-import { TrainingProgramList } from "@/components/training/TrainingProgramList";
 import { TrainingJourneyStory } from "@/components/training/TrainingJourneyStory";
 import { TrainingMethodologySection } from "@/components/training/TrainingMethodologySection";
 import { QuoteBand } from "@/components/ui/QuoteBand";
@@ -33,10 +32,7 @@ export default function TrainingPage() {
       {/* 4. Interactive Programme Recommendation ("Which programme is right for your organization?") */}
       <ProgrammeRecommendation />
 
-      {/* 5. Flagship Training Programs (LILLY, GOTEL, SALAM, COPPTER) */}
-      <TrainingProgramList />
-
-      {/* 6. Transformation Journey Storytelling (Before -> Experience -> Reflect -> Apply) */}
+      {/* 5. Transformation Journey Storytelling (Before -> Experience -> Reflect -> Apply) */}
       <TrainingJourneyStory />
 
       {/* 7. Program Methodology (Adult Learning, Pre/Post Analysis, Experiential Learning) */}

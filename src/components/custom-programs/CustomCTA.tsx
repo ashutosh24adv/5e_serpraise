@@ -30,7 +30,7 @@ export function CustomCTA() {
             >
               Discuss Your Requirements
             </Button>
-            <Button href="/training" variant="secondary-link">
+            <Button href="/training" variant="primary">
               View Flagship Programs
             </Button>
           </div>

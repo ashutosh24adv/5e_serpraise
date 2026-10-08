@@ -18,7 +18,7 @@ export function ClientsHero() {
           </Button>
           <Button
             href="/contact"
-            variant="secondary-link"
+            variant="primary"
           >
             Discuss an Enterprise Partnership
           </Button>

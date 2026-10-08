@@ -17,7 +17,7 @@ export function BlogHero() {
           <Button href="#articles" variant="primary">
             Read Latest Articles
           </Button>
-          <Button href="#featured" variant="secondary-link">
+          <Button href="#featured" variant="primary">
             Featured Essay
           </Button>
         </div>
