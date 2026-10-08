@@ -14,23 +14,23 @@ export function ClientLogoCard({ client }: ClientLogoCardProps) {
 
   return (
     <div
-      className="group bg-[#FCFAF6] border border-[#0B2A6B]/20 hover:border-[#0B2A6B] hover:shadow-md transition-all duration-300 p-3 sm:p-4 flex flex-col items-center justify-between min-h-[140px] text-center relative"
+      className="group bg-[#FCFAF6] border border-[#0B2A6B]/20 hover:border-[#0B2A6B] hover:bg-white hover:-translate-y-1 hover:shadow-xl transition-all duration-300 p-3 sm:p-4 flex flex-col items-center justify-between min-h-[148px] text-center relative z-0 hover:z-20 cursor-pointer"
       title={`${client.name} - ${client.category}`}
     >
-      {/* Top Logo Container with controlled, clean viewport */}
-      <div className="w-full h-16 sm:h-20 flex items-center justify-center p-2 relative bg-white border border-[#A67C37]/15">
+      {/* Top Logo Container with controlled viewport and prominent enlargement on cursor hover */}
+      <div className="w-full h-18 sm:h-20 flex items-center justify-center p-2 relative bg-white border border-[#A67C37]/20 group-hover:border-[#0B2A6B]/40 transition-colors duration-300 overflow-hidden">
         {!imageError ? (
           <Image
             src={client.logo}
             alt={`${client.name} logo`}
             width={140}
             height={56}
-            className="max-h-12 sm:max-h-14 max-w-[130px] object-contain transition-transform duration-300 group-hover:scale-105"
+            className="max-h-11 sm:max-h-12 max-w-[115px] object-contain transition-all duration-300 ease-out group-hover:scale-125 drop-shadow-none group-hover:drop-shadow-sm"
             style={{ width: "auto", height: "auto" }}
             onError={() => setImageError(true)}
           />
         ) : (
-          <div className="flex flex-col items-center justify-center text-[#A67C37]">
+          <div className="flex flex-col items-center justify-center text-[#A67C37] transition-transform duration-300 group-hover:scale-110">
             <Building2 className="w-6 h-6 mb-1 opacity-70 group-hover:text-[#D62839] transition-colors" />
             <span className="text-[10px] font-mono uppercase">{client.id}</span>
           </div>
@@ -42,7 +42,7 @@ export function ClientLogoCard({ client }: ClientLogoCardProps) {
         <h4 className="font-serif font-bold text-xs sm:text-[13px] text-[#0B2A6B] group-hover:text-[#D62839] transition-colors line-clamp-1 leading-snug">
           {client.name}
         </h4>
-        <span className="font-sans text-[9px] uppercase tracking-wider text-[#15151A]/60 mt-0.5 line-clamp-1">
+        <span className="font-sans text-[9px] uppercase tracking-wider text-[#15151A]/60 mt-0.5 line-clamp-1 group-hover:text-[#A67C37] transition-colors">
           {client.category}
         </span>
       </div>
