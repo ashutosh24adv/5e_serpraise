@@ -97,12 +97,18 @@ export function ConsultationForm() {
   };
 
   return (
-    <section className="py-16 bg-[#EFE6D6] border-b border-[#A67C37]/30" id="consultation-form">
+    <section className="py-16 sm:py-20 bg-[#EFE6D6] border-b border-[#A67C37]/30" id="consultation-form">
       <Container size="standard">
-        <div className="max-w-[840px] mx-auto">
+        <div className="max-w-[880px] mx-auto">
           {/* Section Header */}
           <div className="mb-10 text-center sm:text-left space-y-2">
-            <h2 className="font-serif font-extrabold text-[clamp(28px,4vw,40px)] text-[#0B2A6B] leading-tight">
+            <div className="flex items-center justify-center sm:justify-start gap-2.5">
+              <span className="w-4 h-[1.5px] bg-[#A67C37]" />
+              <span className="font-sans text-[11px] font-extrabold tracking-[0.2em] uppercase text-[#0B2A6B]">
+                REQUEST A PROPOSAL
+              </span>
+            </div>
+            <h2 className="font-serif font-extrabold text-[clamp(28px,4vw,42px)] text-[#0B2A6B] leading-tight">
               Request a Custom Proposal
             </h2>
             <p className="font-sans text-[16px] text-[#15151A]/85">
@@ -112,7 +118,7 @@ export function ConsultationForm() {
           </div>
 
           {/* Form Container Card */}
-          <div className="bg-[#F7F1E6] border-2 border-[#0B2A6B] p-6 sm:p-10">
+          <div className="bg-[#F7F1E6] border border-[#0B2A6B]/30 p-8 sm:p-12 relative">
             {isSubmitted ? (
               <div className="py-8 text-center space-y-5" role="status" aria-live="polite">
                 <div className="w-16 h-16 bg-[#0B2A6B] text-[#EFE6D6] mx-auto flex items-center justify-center border border-[#A67C37]">
@@ -307,10 +313,10 @@ export function ConsultationForm() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#D62839] hover:bg-[#B31D2C] text-white px-8 py-3.5 font-sans font-bold text-sm tracking-wider uppercase transition-colors cursor-pointer border border-[#A67C37] rounded-none min-h-[44px] focus:outline-none focus:ring-2 focus:ring-[#0B2A6B] focus:ring-offset-2 disabled:opacity-75"
+                    className="w-full sm:w-auto group inline-flex items-center justify-center gap-2.5 bg-[#D62839] text-white font-sans font-bold text-[15px] px-[32px] py-[16px] hover:bg-[#BC1F2F] transition-colors duration-300 cursor-pointer text-center select-none uppercase tracking-wider disabled:opacity-75"
                   >
                     <span>{isSubmitting ? "Submitting..." : "Send Consultation Request"}</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
                 </div>
               </form>

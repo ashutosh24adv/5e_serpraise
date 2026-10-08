@@ -16,7 +16,7 @@ export function HomeCTA() {
           />
 
           <h2 className="font-serif font-extrabold text-[clamp(30px,4.5vw,48px)] leading-[1.08] tracking-tight text-[#0B2A6B]">
-            Connect With Our OD Specialists
+            Connect With 5e Specialist
           </h2>
 
           <p className="font-sans text-[16px] sm:text-[17px] text-[#15151A]/85 max-w-[54ch] mx-auto leading-relaxed">

@@ -30,7 +30,7 @@ export function ClientsRosterGrid() {
   };
 
   return (
-    <section className="py-16 sm:py-20 bg-[#F7F1E6] border-b border-[#A67C37]/30" id="roster">
+    <section id="roster" className="py-16 sm:py-20 bg-[#F7F1E6] border-b border-[#A67C37]/30">
       <Container size="wide">
         {/* Section Header */}
         <div className="space-y-4 mb-10">

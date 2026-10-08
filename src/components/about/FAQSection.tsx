@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { Container } from "../layout/Container";
 import { SectionLabel } from "../ui/SectionLabel";
 import { HeritageDivider } from "../ui/HeritageDivider";
-import { aboutContent, FAQItem } from "@/content/about";
+import { aboutContent } from "@/content/about";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Plus, Minus, HelpCircle } from "lucide-react";
 
@@ -145,12 +146,12 @@ export function FAQSection() {
               Have a specific question about tailor-made interventions for your organization?
             </div>
           </div>
-          <a
-            href="mailto:contact@5eserpraise.com?subject=Inquiry%20from%205e%20Serpraise%20FAQ"
+          <Link
+            href="/contact"
             className="inline-flex items-center text-xs font-sans font-bold uppercase tracking-wider text-[#0B2A6B] hover:text-[#D62839] underline decoration-[#A67C37] whitespace-nowrap"
           >
             Ask Our Consultants &rarr;
-          </a>
+          </Link>
         </div>
       </Container>
     </section>

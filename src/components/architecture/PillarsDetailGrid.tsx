@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Container } from "../layout/Container";
 import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
-import { siteConfig } from "@/content/site";
 import { ArrowRight, BookOpen, Layers, Compass, Heart, Sparkles, CheckCircle2 } from "lucide-react";
 
 export function PillarsDetailGrid() {
@@ -109,7 +108,7 @@ export function PillarsDetailGrid() {
   ];
 
   return (
-    <section className="py-16 bg-[#EFE6D6] border-b border-[#A67C37]/30">
+    <section id="pillars" className="py-16 bg-[#EFE6D6] border-b border-[#A67C37]/30">
       <Container size="wide">
         <div className="space-y-4 mb-12">
           <SectionLabel
@@ -125,9 +124,8 @@ export function PillarsDetailGrid() {
         </div>
 
         <div className="space-y-8">
-          {detailedPillars.map((pillar, index) => {
+          {detailedPillars.map((pillar) => {
             const IconComp = iconMap[pillar.iconName] || BookOpen;
-            const isEven = index % 2 === 1;
 
             return (
               <div

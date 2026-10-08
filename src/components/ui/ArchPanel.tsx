@@ -1,16 +1,24 @@
 import React from "react";
 import Image from "next/image";
 
-interface ArchPanelProps {
+export interface ArchPanelProps {
   title?: string;
   subtitle?: string;
   className?: string;
+  estText?: string;
+  regionText?: string;
+  footerLeft?: string;
+  footerRight?: string;
 }
 
 export function ArchPanel({
   title = "Corporate Capability",
   subtitle = "Transforming talent and organizational architecture since 2003",
   className = "",
+  estText = "Est. 2003",
+  regionText = "INDIA \u2022 AUSTRALIA",
+  footerLeft = "5E SERPRAISE",
+  footerRight = "HR \u2022 OD \u2022 Training",
 }: ArchPanelProps) {
   return (
     <div className={`relative w-full flex items-center justify-center p-3 sm:p-4 group ${className}`}>
@@ -57,10 +65,10 @@ export function ArchPanel({
             />
           </div>
           <span className="font-serif italic text-lg sm:text-xl text-[#A67C37]">
-            Est. 2003
+            {estText}
           </span>
           <span className="font-sans text-[11px] sm:text-xs font-bold tracking-[0.25em] text-[#EFE6D6]/80 uppercase mt-1">
-            INDIA &bull; AUSTRALIA
+            {regionText}
           </span>
         </div>
 
@@ -70,15 +78,15 @@ export function ArchPanel({
           <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#EFE6D6] leading-[1.18] max-w-[320px] mx-auto">
             {title}
           </h3>
-          <p className="font-sans text-xs sm:text-sm text-[#EFE6D6]/80 mt-2 max-w-[280px] mx-auto leading-relaxed">
+          <p className="font-sans text-xs sm:text-sm text-[#EFE6D6]/80 mt-2 max-w-[280px] mx-auto leading-relaxed whitespace-pre-line">
             {subtitle}
           </p>
         </div>
 
         {/* Bottom Banner */}
         <div className="relative z-10 border-t border-[#A67C37]/50 pt-4 flex items-center justify-between text-xs font-sans text-[#EFE6D6]/85 uppercase tracking-widest">
-          <span className="font-bold">5e SERPRAISE</span>
-          <span className="text-[#A67C37] font-serif italic capitalize text-sm">HR &bull; OD &bull; Training</span>
+          <span className="font-bold">{footerLeft}</span>
+          <span className="text-[#A67C37] font-serif italic capitalize text-sm">{footerRight}</span>
         </div>
       </div>
     </div>

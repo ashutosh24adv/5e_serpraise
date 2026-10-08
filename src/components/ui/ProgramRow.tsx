@@ -70,9 +70,7 @@ export function ProgramRow({ program }: ProgramRowProps) {
           </span>
 
           <Button
-            href={`mailto:contact@5eserpraise.com?subject=Inquiry%20about%20${encodeURIComponent(
-              program.name + " - " + program.fullName
-            )}`}
+            href="/contact"
             variant="secondary-link"
           >
             Inquire for {program.name}

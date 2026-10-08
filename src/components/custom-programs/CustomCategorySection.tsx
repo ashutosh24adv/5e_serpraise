@@ -92,9 +92,7 @@ export function CustomCategorySection() {
                       {/* Action */}
                       <div className="lg:col-span-3 flex lg:justify-end">
                         <Button
-                          href={`mailto:contact@5eserpraise.com?subject=Custom%20Training%20Inquiry%20-%20${encodeURIComponent(
-                            prog.title
-                          )}`}
+                          href="/contact"
                           variant="secondary-link"
                         >
                           Inquire for Program

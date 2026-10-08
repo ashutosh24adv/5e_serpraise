@@ -16,28 +16,28 @@ export function ProgrammeConsultationSelector() {
   const options = [
     {
       id: "myself" as const,
-      label: "MYSELF",
+      label: "Self Growth",
       sublabel: "Personal Purpose & Self-Mastery",
       icon: User,
       programId: "lilly",
     },
     {
       id: "team" as const,
-      label: "MY TEAM",
+      label: "Team Dynamics",
       sublabel: "Goal Orientation & Synergy",
       icon: Users,
       programId: "gotel",
     },
     {
       id: "leaders" as const,
-      label: "MY LEADERS",
+      label: "Executive Leadership",
       sublabel: "Stewardship & Leadership Aligning",
       icon: ShieldCheck,
       programId: "salam",
     },
     {
       id: "business" as const,
-      label: "MY BUSINESS",
+      label: "Enterprise Growth",
       sublabel: "People & Process Confluence",
       icon: TrendingUp,
       programId: "coppter",
@@ -58,10 +58,10 @@ export function ProgrammeConsultationSelector() {
             align="center"
           />
           <h2 className="font-serif font-extrabold text-[clamp(28px,4.2vw,44px)] leading-[1.1] tracking-tight text-[#0B2A6B]">
-            What are you trying to transform?
+            Proprietary Training Programmes
           </h2>
           <p className="font-sans text-[16px] text-[#15151A]/85 leading-relaxed">
-            Select your primary capability challenge below to receive an instant consultative recommendation backed by 5e Serpraise experiential frameworks.
+            Explore our proprietary programmes designed for individuals, teams, leaders, and organizations.
           </p>
         </div>
 
@@ -104,11 +104,11 @@ export function ProgrammeConsultationSelector() {
 
                 <div>
                   <div
-                    className={`font-sans font-extrabold text-[16px] tracking-wider uppercase ${
+                    className={`font-sans font-extrabold text-[16px] tracking-wide ${
                       isSelected ? "text-white" : "text-[#0B2A6B]"
                     }`}
                   >
-                    [ {option.label} ]
+                    {option.label}
                   </div>
                   <div
                     className={`font-serif italic text-xs mt-1 ${

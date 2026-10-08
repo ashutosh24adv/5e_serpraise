@@ -13,7 +13,7 @@ export function InteractiveMethodology() {
 
   const stepMeta = [
     {
-      action: "01 LEARN",
+      action: "LEARN",
       subtitle: "Respecting Adult Learning Principles",
       icon: BrainCircuit,
       highlights: [
@@ -23,7 +23,7 @@ export function InteractiveMethodology() {
       ],
     },
     {
-      action: "02 MEASURE",
+      action: "MEASURE",
       subtitle: "Pre & Post Capability Analysis",
       icon: Activity,
       highlights: [
@@ -33,7 +33,7 @@ export function InteractiveMethodology() {
       ],
     },
     {
-      action: "03 EXPERIENCE",
+      action: "EXPERIENCE",
       subtitle: "High-Interaction PGL & Role-Play",
       icon: Gamepad2,
       highlights: [
@@ -48,7 +48,7 @@ export function InteractiveMethodology() {
   const currentMeta = stepMeta[activeStep] || stepMeta[0];
 
   return (
-    <section className="py-[84px] bg-[#F7F1E6] border-t border-b border-[#A67C37]/40" id="methodology">
+    <section className="py-[84px] bg-[#EFE6D6] border-t border-[#A67C37]/40" id="methodology">
       <Container size="wide">
         {/* Section Heading */}
         <div className="text-center max-w-[720px] mx-auto space-y-3 mb-10">
@@ -79,7 +79,7 @@ export function InteractiveMethodology() {
                 className={`p-6 text-left border transition-all duration-300 relative focus:outline-none cursor-pointer flex flex-col justify-between ${
                   isCurrent
                     ? "bg-[#0B2A6B] text-[#EFE6D6] border-[#0B2A6B]"
-                    : "bg-[#EFE6D6] text-[#0B2A6B] border-[#0B2A6B]/30 hover:border-[#0B2A6B]"
+                    : "bg-[#F7F1E6] text-[#0B2A6B] border-[#0B2A6B]/30 hover:border-[#0B2A6B]"
                 }`}
                 role="tab"
                 aria-selected={isCurrent}
@@ -125,7 +125,7 @@ export function InteractiveMethodology() {
         </div>
 
         {/* Dynamic Methodology Deep-Dive */}
-        <div className="mt-8 max-w-[1020px] mx-auto bg-[#EFE6D6] border border-[#0B2A6B]/35 p-7 sm:p-10 relative overflow-hidden">
+        <div className="mt-8 max-w-[1020px] mx-auto bg-[#F7F1E6] border border-[#0B2A6B]/35 p-7 sm:p-10 relative overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeStep}
@@ -172,7 +172,7 @@ export function InteractiveMethodology() {
 
               {/* Right Decorative Box */}
               <div className="lg:col-span-4 flex justify-center lg:justify-end">
-                <div className="p-7 bg-[#F7F1E6] border border-[#A67C37]/50 w-full max-w-[280px] text-center space-y-3">
+                <div className="p-7 bg-[#EFE6D6] border border-[#A67C37]/50 w-full max-w-[280px] text-center space-y-3">
                   <div className="w-12 h-12 bg-[#0B2A6B] flex items-center justify-center mx-auto text-[#EFE6D6]">
                     <currentMeta.icon className="w-6 h-6 text-[#A67C37]" />
                   </div>

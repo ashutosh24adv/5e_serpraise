@@ -151,8 +151,8 @@ export function FiveEFrameworkJourney() {
                     {activePillar.code}
                   </span>
                   <span className="w-1.5 h-1.5 bg-[#A67C37]" />
-                  <span className="font-sans font-bold text-xs uppercase tracking-[0.2em] text-[#0B2A6B]">
-                    PILLAR {activePillar.number} &bull; {activePillar.name}
+                  <span className="font-sans font-extrabold text-sm sm:text-base uppercase tracking-[0.2em] text-[#0B2A6B]">
+                    {activePillar.name}
                   </span>
                 </div>
 

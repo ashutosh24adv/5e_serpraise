@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 import { Container } from "../layout/Container";
 import { HeritageDivider } from "../ui/HeritageDivider";
-import { galleryContent, GalleryCategory, GalleryItem } from "@/content/gallery";
+import { galleryContent, GalleryCategory } from "@/content/gallery";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { MapPin, Calendar, Sparkles, Camera } from "lucide-react";
+import { MapPin, Calendar, Camera } from "lucide-react";
 import Image from "next/image";
 
 export function GalleryGrid() {

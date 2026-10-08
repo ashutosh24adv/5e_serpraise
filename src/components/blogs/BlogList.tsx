@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Container } from "../layout/Container";
 import { HeritageDivider } from "../ui/HeritageDivider";
-import { blogContent, BlogPost } from "@/content/blogs";
+import { blogContent } from "@/content/blogs";
 import { Clock, Calendar, User, ArrowRight, BookOpen, Tag } from "lucide-react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
@@ -36,7 +36,7 @@ export function BlogList() {
 
         {/* Featured Essay Spotlight (Only when "All" is active or matched) */}
         {selectedCategory === "All" && (
-          <div className="my-8">
+          <div id="featured" className="my-8 scroll-mt-24">
             <div className="flex items-center gap-2 mb-3 text-[11px] font-sans font-bold tracking-[0.25em] uppercase text-[#D62839]">
               <BookOpen className="w-3.5 h-3.5" />
               <span>FEATURED PRACTITIONER ESSAY</span>
@@ -161,7 +161,7 @@ export function BlogList() {
         {/* Article Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           <AnimatePresence mode="popLayout">
-            {filteredPosts.map((post, idx) => (
+            {filteredPosts.map((post) => (
               <motion.article
                 key={post.id}
                 layout

@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Container } from "../layout/Container";
 import { SectionLabel } from "../ui/SectionLabel";
-import { Button } from "../ui/Button";
 import { odGroups } from "@/content/od-projects";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Layers, ArrowUpRight } from "lucide-react";
@@ -34,14 +33,6 @@ export function ODInteractiveExplorer() {
     activeFilter === "ALL"
       ? allServices
       : allServices.filter((s) => s.groupNumber === activeFilter);
-
-  const journeyStages = [
-    { stage: "01", name: "PEOPLE", focus: "Values, Purpose & Mindset", link: "/training#lilly", prog: "LILLY" },
-    { stage: "02", name: "TEAMS", focus: "Goal Orientation & Synergy", link: "/training#gotel", prog: "GOTEL" },
-    { stage: "03", name: "LEADERS", focus: "Stewardship & Matrix Aligning", link: "/training#salam", prog: "SALAM" },
-    { stage: "04", name: "SYSTEMS", focus: "HR Architecture & OD Projects", link: "/od-projects", prog: "OD PROJECTS" },
-    { stage: "05", name: "BUSINESS", focus: "Process Confluence & Enterprise Results", link: "/training#coppter", prog: "COPPTER" },
-  ];
 
   return (
     <section className="py-[84px] bg-[#EFE6D6] border-t border-[#A67C37]/40" id="od-explorer">
@@ -136,56 +127,6 @@ export function ODInteractiveExplorer() {
             ))}
           </AnimatePresence>
         </motion.div>
-
-        {/* 5-Stage Organization Growth Journey */}
-        <div className="mt-14 p-8 sm:p-10 bg-[#0B2A6B] text-[#EFE6D6] border border-[#0B2A6B]">
-          <div className="mb-6 space-y-1">
-            <span className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-[#A67C37]">
-              ORGANIZATIONAL CONTINUUM
-            </span>
-            <h3 className="font-serif font-extrabold text-[24px] sm:text-[28px] text-[#EFE6D6]">
-              Where does your organization need to go?
-            </h3>
-            <p className="font-sans text-xs sm:text-sm text-[#EFE6D6]/85 max-w-[650px]">
-              How 5e Serpraise connects people, teams, leaders, systems, and enterprise outcomes into a cohesive institutional journey.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 pt-4 border-t border-[#EFE6D6]/20">
-            {journeyStages.map((stage) => (
-              <Link
-                key={stage.stage}
-                href={stage.link}
-                className="p-4 bg-[#0B2A6B]/80 border border-[#A67C37]/40 hover:border-[#D62839] hover:bg-[#0B2A6B] transition-all duration-200 flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="flex items-center justify-between pb-2 border-b border-[#EFE6D6]/15 mb-2">
-                    <span className="font-serif font-extrabold text-lg text-[#D62839]">
-                      STAGE {stage.stage}
-                    </span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-[#A67C37] group-hover:text-white transition-colors" />
-                  </div>
-                  <div className="font-sans font-extrabold text-sm tracking-wider uppercase text-white">
-                    {stage.name}
-                  </div>
-                  <p className="font-serif italic text-xs text-[#EFE6D6]/80 mt-1 leading-snug">
-                    {stage.focus}
-                  </p>
-                </div>
-                <div className="pt-3 mt-3 border-t border-[#EFE6D6]/15 text-[10px] font-sans font-bold uppercase tracking-wider text-[#A67C37]">
-                  {stage.prog}
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Link to OD Page */}
-        <div className="mt-8 flex justify-center">
-          <Button href="/od-projects" variant="primary">
-            Explore All OD Projects &amp; Retainership
-          </Button>
-        </div>
       </Container>
     </section>
   );

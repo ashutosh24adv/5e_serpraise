@@ -1,83 +1,87 @@
+"use client";
+
 import React from "react";
 import { Container } from "../layout/Container";
-import { SectionLabel } from "../ui/SectionLabel";
-import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export function ContactHeader() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <section className="pt-14 pb-12 bg-[#EFE6D6] border-b border-[#A67C37]/30">
+    <section className="relative w-full py-14 sm:py-18 lg:py-[80px] bg-[#EFE6D6] border-b border-[#A67C37]/40 overflow-hidden">
       <Container size="wide">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          {/* Left Column: Heading & Narrative Hierarchy */}
-          <div className="lg:col-span-8 space-y-6">
-            <SectionLabel
-              title="DIRECT CONSULTATION"
-              subtitle="Preliminary discovery and advisory session for progressive organizations."
-            />
+        <div className="max-w-[880px]">
+          {/* Eyebrow */}
+          <motion.div
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.0, ease }}
+            className="flex items-center gap-2.5 mb-5"
+          >
+            <span className="w-5 h-[1.5px] bg-[#A67C37]" />
+            <span className="font-sans text-[11px] sm:text-xs font-extrabold tracking-[0.2em] uppercase text-[#0B2A6B]">
+              DIRECT CONSULTATION
+            </span>
+          </motion.div>
 
-            <h1 className="font-serif font-extrabold text-[clamp(36px,5.5vw,56px)] leading-[1.06] tracking-tight text-[#0B2A6B]">
-              Connect With Our OD Specialists
+          {/* Heading */}
+          <motion.div
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.08, ease }}
+          >
+            <h1 className="font-serif font-extrabold text-[clamp(38px,4.8vw,64px)] leading-[1.06] tracking-[-0.02em] text-[#0B2A6B]">
+              Connect With 5e Specialist
             </h1>
+          </motion.div>
 
-            <div className="w-16 h-[2px] bg-[#A67C37]" />
+          {/* Gold Italic Subtitle */}
+          <motion.div
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.16, ease }}
+            className="font-serif italic font-medium text-[clamp(20px,2.5vw,30px)] text-[#A67C37] leading-[1.2] mt-3"
+          >
+            Preliminary discovery and advisory session for progressive organizations.
+          </motion.div>
 
-            <p className="font-sans text-[16px] sm:text-[18px] text-[#15151A]/85 leading-relaxed max-w-[65ch]">
+          {/* Description */}
+          <motion.div
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.24, ease }}
+          >
+            <p className="font-sans text-[17px] text-[#15151A] leading-[1.65] max-w-[680px] mt-5">
               Schedule a preliminary discovery session with our team in India and Australia to discuss your organization’s training, executive coaching, or OD interventions.
             </p>
+          </motion.div>
 
-            {/* Quick Practice Badges */}
-            <div className="pt-2 flex flex-wrap items-center gap-6 text-xs font-sans font-bold uppercase tracking-wider text-[#0B2A6B]">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-[#D62839]" />
-                <span>India Corporate Office</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-[#A67C37]" />
-                <span>Australia Regional Office</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-[#0B2A6B]" />
-                <span>Confidential Discovery</span>
-              </div>
+          {/* Quick Practice Badges */}
+          <motion.div
+            initial={shouldReduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.35, ease }}
+            className="pt-8 mt-8 border-t border-[#A67C37]/40 flex flex-wrap items-center gap-6 sm:gap-8 text-[13px] font-sans text-[#15151A]"
+          >
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-[#D62839]" />
+              <span className="font-bold text-[#0B2A6B]">India Corporate Office</span>
+              <span className="text-[#15151A]/70">(Chennai &amp; Bengaluru)</span>
             </div>
-          </div>
-
-          {/* Right Column: Architectural Seal */}
-          <div className="lg:col-span-4 flex justify-center lg:justify-end">
-            <div
-              className="relative w-full max-w-[340px] bg-[#0B2A6B] text-[#EFE6D6] p-8 border border-[#A67C37] flex flex-col justify-between"
-              style={{ borderRadius: "999px 999px 0 0" }}
-            >
-              <div className="flex flex-col items-center text-center pt-4">
-                <div className="relative w-20 h-20 mb-3">
-                  <Image
-                    src="/logo/5e-logo.png"
-                    alt="5e Serpraise Logo"
-                    width={80}
-                    height={80}
-                    className="w-full h-full drop-shadow-none object-contain"
-                    priority
-                  />
-                </div>
-                <span className="font-serif italic text-lg text-[#A67C37]">
-                  Discovery &bull; Advisory
-                </span>
-                <span className="font-sans text-[11px] font-bold tracking-[0.25em] text-[#EFE6D6]/80 uppercase mt-1">
-                  INDIA &bull; AUSTRALIA
-                </span>
-              </div>
-
-              <div className="my-6 text-center border-t border-b border-[#A67C37]/40 py-4">
-                <div className="font-serif italic text-sm text-[#EFE6D6]">
-                  &ldquo;Service + Praise &mdash; Enriching Everyone.&rdquo;
-                </div>
-              </div>
-
-              <div className="text-center font-sans text-[11px] uppercase tracking-widest text-[#A67C37] font-semibold">
-                Direct Consultation Gateway
-              </div>
+            <span className="text-[#A67C37]" aria-hidden="true">&bull;</span>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-[#A67C37]" />
+              <span className="font-bold text-[#0B2A6B]">Australia Regional Office</span>
+              <span className="text-[#15151A]/70">(Melbourne)</span>
             </div>
-          </div>
+            <span className="text-[#A67C37]" aria-hidden="true">&bull;</span>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-[#0B2A6B]" />
+              <span className="font-bold text-[#0B2A6B]">Confidential Discovery</span>
+            </div>
+          </motion.div>
         </div>
       </Container>
     </section>

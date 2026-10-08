@@ -5,7 +5,7 @@ import { Container } from "../layout/Container";
 import { SectionLabel } from "../ui/SectionLabel";
 import { HeritageDivider } from "../ui/HeritageDivider";
 import { aboutContent } from "@/content/about";
-import { Award, Briefcase, GraduationCap, Users, Sparkles, Building2 } from "lucide-react";
+import { Briefcase, GraduationCap, Users, Building2 } from "lucide-react";
 import Image from "next/image";
 
 export function TeamSection() {
