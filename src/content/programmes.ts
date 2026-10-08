@@ -14,6 +14,7 @@ export interface CoreProgram {
 }
 
 export interface TrainingMethodology {
+  id: string;
   number: string;
   title: string;
   summary: string;
@@ -126,6 +127,7 @@ export const corePrograms: CoreProgram[] = [
 
 export const trainingMethodologies: TrainingMethodology[] = [
   {
+    id: "respecting-adult-learning-principles",
     number: "01",
     title: "ADULT LEARNING PRINCIPLES",
     summary: "Based on andragogy and participant experience.",
@@ -134,6 +136,7 @@ export const trainingMethodologies: TrainingMethodology[] = [
     experientialDetails: ["Self-directed learning", "Practical relevance", "Experience integration"],
   },
   {
+    id: "pre-post-capability-analysis",
     number: "02",
     title: "PRE & POST ANALYSIS",
     summary: "Pre & post analysis to ensure measurable impact.",
@@ -142,6 +145,7 @@ export const trainingMethodologies: TrainingMethodology[] = [
     experientialDetails: ["Pre-workshop diagnostic questionnaires", "Baseline skill mapping", "Post-program impact audits"],
   },
   {
+    id: "high-interaction-pgl-role-play",
     number: "03",
     title: "EXPERIENTIAL LEARNING",
     summary: "Highly interactive experiential learning.",

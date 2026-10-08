@@ -221,3 +221,30 @@ export const retainershipInfo: RetainershipInfo = {
     "Flexible engagement model aligned with organizational priorities and pace",
   ],
 };
+
+export function getODSlug(title: string): string {
+  const slugMap: Record<string, string> = {
+    "Culture Building": "culture-building",
+    "Employee Engagement Survey": "employee-engagement-survey",
+    "Internal Client Satisfaction Survey": "internal-client-satisfaction-survey",
+    "Assessment Center": "assessment-center",
+    "Performance Appraisal System": "performance-appraisal-system",
+    "360 Degree Feedback": "360-degree-feedback",
+    "Job Evaluation": "job-evaluation",
+    "Policy Manual & Employee Handbook": "policy-manual-employee-handbook",
+    "Competency Dictionary & Mapping": "competency-dictionary-mapping",
+    "Job Description Manual": "job-description-manual",
+    "HR Systems Formulation": "hr-systems-formulation",
+    "Annual Business Meet & Out Bound Training": "annual-business-meet-outbound-training",
+  };
+
+  if (slugMap[title]) return slugMap[title];
+
+  return title
+    .toLowerCase()
+    .replace(/&/g, "")
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .trim();
+}

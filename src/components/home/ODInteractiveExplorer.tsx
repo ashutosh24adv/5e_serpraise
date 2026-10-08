@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Container } from "../layout/Container";
 import { SectionLabel } from "../ui/SectionLabel";
-import { odGroups } from "@/content/od-projects";
+import { odGroups, getODSlug } from "@/content/od-projects";
 import { Layers, BrainCircuit, Activity, Gamepad2 } from "lucide-react";
 
 export function ODInteractiveExplorer() {
@@ -13,7 +13,7 @@ export function ODInteractiveExplorer() {
     group.services.map((service) => ({
       ...service,
       groupTitle: group.title,
-      href: "/od-projects",
+      href: `/od-projects#${getODSlug(service.title)}`,
       icon: Layers,
     }))
   );
@@ -24,21 +24,21 @@ export function ODInteractiveExplorer() {
       title: "Respecting Adult Learning Principles",
       tagline: "Self-directed discovery, immediate workplace relevance & cognitive engagement.",
       groupTitle: "EXPERIENTIAL METHODOLOGY",
-      href: "/training",
+      href: "/training#respecting-adult-learning-principles",
       icon: BrainCircuit,
     },
     {
       title: "Pre & Post Capability Analysis",
       tagline: "Diagnostic baseline assessment, targeted skill gaps & measurable post-program ROI.",
       groupTitle: "EXPERIENTIAL METHODOLOGY",
-      href: "/training",
+      href: "/training#pre-post-capability-analysis",
       icon: Activity,
     },
     {
       title: "High-Interaction PGL & Role-Play",
       tagline: "Project-Game-Lecture simulations, leadership dilemmas & structured debriefs.",
       groupTitle: "EXPERIENTIAL METHODOLOGY",
-      href: "/training",
+      href: "/training#high-interaction-pgl-role-play",
       icon: Gamepad2,
     },
   ];
@@ -69,11 +69,12 @@ export function ODInteractiveExplorer() {
             const Icon = service.icon;
 
             return (
-              <div
+              <Link
                 key={`${service.title}-${idx}`}
-                className="p-6 bg-[#F7F1E6] border border-[#0B2A6B]/25 hover:border-[#0B2A6B] hover:shadow-xs transition-all duration-200 flex flex-col justify-between group"
+                href={service.href}
+                className="p-6 bg-[#F7F1E6] border border-[#0B2A6B]/25 hover:border-[#0B2A6B] hover:shadow-sm transition-all duration-200 flex flex-col justify-between group cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-[#0B2A6B]"
               >
-                <Link href={service.href} className="block focus:outline-none">
+                <div>
                   {/* 1. Category */}
                   <div className="flex items-center justify-between pb-3 border-b border-[#A67C37]/35 mb-3">
                     <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#D62839]">
@@ -93,8 +94,8 @@ export function ODInteractiveExplorer() {
                       {service.tagline}
                     </div>
                   )}
-                </Link>
-              </div>
+                </div>
+              </Link>
             );
           })}
         </div>

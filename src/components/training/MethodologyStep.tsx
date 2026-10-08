@@ -3,22 +3,38 @@ import { TrainingMethodology } from "@/content/programmes";
 
 interface MethodologyStepProps {
   methodology: TrainingMethodology;
+  isHighlighted?: boolean;
+  onClick?: () => void;
 }
 
-export function MethodologyStep({ methodology }: MethodologyStepProps) {
+export function MethodologyStep({ methodology, isHighlighted, onClick }: MethodologyStepProps) {
   return (
-    <div className="p-8 sm:p-9 bg-[#EFE6D6] border border-[#0B2A6B]/30 flex flex-col justify-between group hover:border-[#0B2A6B] transition-colors duration-300">
+    <div
+      id={methodology.id}
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      aria-pressed={Boolean(isHighlighted)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick?.();
+        }
+      }}
+      className={`p-8 sm:p-9 bg-[#F7F1E6] border flex flex-col justify-between group transition-all duration-300 scroll-mt-28 md:scroll-mt-32 cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-[#0B2A6B] ${
+        isHighlighted
+          ? "border-[#0B2A6B] ring-2 ring-[#0B2A6B]/50 shadow-md"
+          : "border-[#0B2A6B]/30 hover:border-[#0B2A6B] hover:shadow-xs"
+      }`}
+    >
       <div>
-        <div className="flex items-center justify-between pb-4 border-b border-[#A67C37]/40 mb-5">
+        <div className="pb-3 border-b border-[#A67C37]/40 mb-5">
           <span className="font-serif font-extrabold text-[36px] sm:text-[40px] text-[#0B2A6B] leading-none">
             {methodology.number}
           </span>
-          <span className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-[#D62839]">
-            PILLAR {methodology.number}
-          </span>
         </div>
 
-        <h3 className="font-serif font-extrabold text-[22px] sm:text-[24px] leading-tight text-[#0B2A6B]">
+        <h3 className="font-serif font-extrabold text-[22px] sm:text-[24px] leading-tight text-[#0B2A6B] group-hover:text-[#D62839] transition-colors">
           {methodology.title}
         </h3>
 
@@ -37,3 +53,5 @@ export function MethodologyStep({ methodology }: MethodologyStepProps) {
     </div>
   );
 }
+
+
