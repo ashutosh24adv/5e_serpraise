@@ -19,7 +19,7 @@ export function CustomProgramHero() {
           >
             Discuss Your Requirements
           </Button>
-          <Button href="#categories" variant="secondary-link">
+          <Button href="#categories" variant="primary">
             Explore Categories
           </Button>
         </div>

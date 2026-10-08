@@ -35,7 +35,7 @@ export function TrainingCTA() {
               >
                 Discuss Your Training Needs
               </Button>
-              <Button href="/custom-programs" variant="secondary-link">
+              <Button href="/custom-programs" variant="primary">
                 Explore Custom Programs
               </Button>
             </div>

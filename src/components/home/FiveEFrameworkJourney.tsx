@@ -178,13 +178,9 @@ export function FiveEFrameworkJourney() {
                   <Button href={activePillar.href} variant="primary">
                     Explore {activePillar.name}
                   </Button>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-1.5 text-[#0B2A6B] font-sans font-bold text-[15px] underline decoration-[#A67C37] decoration-2 underline-offset-[6px] hover:text-[#D62839] transition-colors"
-                  >
-                    <span>Discuss Requirements</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  <Button href="/contact" variant="primary">
+                    Discuss Requirements
+                  </Button>
                 </div>
               </div>
 

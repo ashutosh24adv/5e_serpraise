@@ -19,7 +19,7 @@ export function GalleryHero() {
           </Button>
           <Button
             href="/contact"
-            variant="secondary-link"
+            variant="primary"
           >
             Discuss a Workshop
           </Button>

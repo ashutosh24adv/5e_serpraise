@@ -18,7 +18,7 @@ export function TrainingHero() {
           </Button>
           <Button
             href="/contact"
-            variant="secondary-link"
+            variant="primary"
           >
             Discuss Your Training Needs
           </Button>

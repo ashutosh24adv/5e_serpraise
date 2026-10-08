@@ -16,8 +16,8 @@ export function ArchitectureHero() {
           <Button href="#pillars" variant="primary">
             Explore 5 Pillars
           </Button>
-          <Button href="#dimensions" variant="secondary-link">
-            Four Growth Dimensions
+          <Button href="#dimensions" variant="primary">
+            Explore Four Growth Dimensions
           </Button>
         </div>
       }

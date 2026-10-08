@@ -5,7 +5,7 @@ import { Container } from "../layout/Container";
 import { Button } from "../ui/Button";
 import { recommendationOptions, corePrograms } from "@/content/programmes";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowRight, Sparkles, Clock, Target } from "lucide-react";
+import { Check, ArrowRight, Sparkles, Clock, Target, Users } from "lucide-react";
 
 export function ProgrammeRecommendation() {
   const [selectedOptionId, setSelectedOptionId] = useState("individual");
@@ -19,7 +19,7 @@ export function ProgrammeRecommendation() {
     corePrograms[0];
 
   return (
-    <section className="py-[80px] bg-[#F7F1E6] border-t border-b border-[#A67C37]/40" id="recommendation">
+    <section className="py-[80px] bg-[#F7F1E6] border-t border-b border-[#A67C37]/40 scroll-mt-24" id="programs">
       <Container size="wide">
         {/* Section Heading */}
         <div className="mb-[36px] text-center max-w-[700px] mx-auto space-y-2">
@@ -42,6 +42,7 @@ export function ProgrammeRecommendation() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[14px]">
           {recommendationOptions.map((opt) => {
             const isSelected = opt.id === selectedOptionId;
+            const targetProg = corePrograms.find((p) => p.id === opt.targetProgramId);
 
             return (
               <button
@@ -76,7 +77,7 @@ export function ProgrammeRecommendation() {
                 </div>
 
                 <div className="pt-4 mt-4 border-t border-[#A67C37]/30 text-[11px] font-sans uppercase font-bold tracking-wider text-[#0B2A6B] flex items-center justify-between">
-                  <span>Flagship Fit</span>
+                  <span>Flagship: {targetProg?.name || "Program"}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </button>
@@ -93,10 +94,10 @@ export function ProgrammeRecommendation() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -14 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+              className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start"
             >
-              {/* Left Matched Program Overview */}
-              <div className="lg:col-span-8 space-y-4">
+              {/* Left Matched Program Overview & Modules */}
+              <div className="lg:col-span-8 space-y-5">
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="inline-block bg-[#D62839] text-white font-sans font-bold text-xs uppercase px-3 py-1 tracking-wider">
                     Recommended: {matchedProgram.name}
@@ -104,11 +105,20 @@ export function ProgrammeRecommendation() {
                   <span className="font-sans text-xs font-bold uppercase tracking-[0.16em] text-[#0B2A6B]">
                     {matchedProgram.category}
                   </span>
+                  <span className="font-sans text-xs font-semibold text-[#15151A]/70 flex items-center gap-1">
+                    <Clock className="w-3.5 h-3.5 text-[#D62839]" />
+                    {matchedProgram.duration}
+                  </span>
                 </div>
 
-                <h3 className="font-serif font-extrabold text-[clamp(28px,3.8vw,44px)] text-[#0B2A6B] leading-[1.1]">
-                  {matchedProgram.fullName}
-                </h3>
+                <div>
+                  <h3 className="font-serif font-extrabold text-[clamp(28px,3.8vw,42px)] text-[#0B2A6B] leading-[1.1]">
+                    {matchedProgram.fullName}
+                  </h3>
+                  <p className="font-serif italic text-base text-[#15151A]/85 mt-1 leading-snug">
+                    {matchedProgram.positioning}
+                  </p>
+                </div>
 
                 {/* Reason Explanation */}
                 <div className="p-4 bg-[#F7F1E6] border-l-2 border-[#D62839] space-y-1">
@@ -121,40 +131,68 @@ export function ProgrammeRecommendation() {
                   </p>
                 </div>
 
-                <div className="flex items-center gap-4 text-xs font-sans text-[#0B2A6B] pt-1">
-                  <div className="flex items-center gap-1.5">
-                    <Clock className="w-4 h-4 text-[#D62839]" />
-                    <span className="font-bold">Duration: {matchedProgram.duration}</span>
+                {/* Key Focus Modules (Moved up from Four ways we educate) */}
+                <div className="space-y-2.5 pt-1">
+                  <div className="font-sans text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0B2A6B]">
+                    Key Focus Modules:
                   </div>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+                    {matchedProgram.keyTopics.map((topic, i) => (
+                      <li key={i} className="flex items-start gap-2 text-[13px] font-sans text-[#15151A]">
+                        <Check className="w-4 h-4 text-[#D62839] mt-0.5 flex-shrink-0" />
+                        <span>{topic}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
+                {/* Action CTAs */}
                 <div className="pt-3 flex flex-wrap items-center gap-5">
                   <Button
-                    href={`#${matchedProgram.id}`}
+                    href={`/contact?program=${matchedProgram.id}`}
                     variant="primary"
                   >
-                    View {matchedProgram.name} Details
+                    Inquire for {matchedProgram.name}
                   </Button>
                   <Button
                     href="/contact"
-                    variant="secondary-link"
+                    variant="primary"
                   >
                     Discuss Organization Fit
                   </Button>
                 </div>
               </div>
 
-              {/* Right Key Outcomes Summary */}
-              <div className="lg:col-span-4 p-6 bg-[#F7F1E6] border border-[#A67C37]/50 space-y-3">
-                <div className="font-sans text-[11px] font-bold tracking-[0.18em] uppercase text-[#0B2A6B] flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-[#D62839]" />
-                  <span>Target Outcome</span>
+              {/* Right Key Outcomes & Details Summary Box */}
+              <div className="lg:col-span-4 p-6 sm:p-7 bg-[#F7F1E6] border border-[#A67C37]/50 space-y-4">
+                <div className="space-y-2">
+                  <div className="font-sans text-[11px] font-bold tracking-[0.18em] uppercase text-[#0B2A6B] flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-[#D62839]" />
+                    <span>Target Outcome</span>
+                  </div>
+                  <p className="font-serif italic text-sm text-[#15151A] leading-relaxed">
+                    &ldquo;{matchedProgram.keyOutcome}&rdquo;
+                  </p>
                 </div>
-                <p className="font-serif italic text-sm text-[#15151A] leading-relaxed">
-                  &ldquo;{matchedProgram.keyOutcome}&rdquo;
-                </p>
-                <div className="pt-3 border-t border-[#A67C37]/30 text-xs font-sans text-[#15151A]/75">
-                  Audience: {matchedProgram.targetAudience}
+
+                <div className="pt-4 border-t border-[#A67C37]/30 space-y-1">
+                  <div className="font-sans text-[11px] font-bold uppercase tracking-wider text-[#0B2A6B] flex items-center gap-1.5">
+                    <Users className="w-3.5 h-3.5 text-[#D62839]" />
+                    <span>Target Audience</span>
+                  </div>
+                  <p className="text-xs font-sans text-[#15151A]/85 leading-relaxed">
+                    {matchedProgram.targetAudience}
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-[#A67C37]/30 space-y-1">
+                  <div className="font-sans text-[11px] font-bold uppercase tracking-wider text-[#0B2A6B] flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-[#D62839]" />
+                    <span>Format & Duration</span>
+                  </div>
+                  <p className="text-xs font-sans text-[#15151A]/85 leading-relaxed">
+                    {matchedProgram.duration}
+                  </p>
                 </div>
               </div>
             </motion.div>
