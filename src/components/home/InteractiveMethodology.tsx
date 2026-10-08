@@ -13,7 +13,7 @@ export function InteractiveMethodology() {
 
   const stepMeta = [
     {
-      action: "01 LEARN",
+      action: "LEARN",
       subtitle: "Respecting Adult Learning Principles",
       icon: BrainCircuit,
       highlights: [
@@ -23,7 +23,7 @@ export function InteractiveMethodology() {
       ],
     },
     {
-      action: "02 MEASURE",
+      action: "MEASURE",
       subtitle: "Pre & Post Capability Analysis",
       icon: Activity,
       highlights: [
@@ -33,7 +33,7 @@ export function InteractiveMethodology() {
       ],
     },
     {
-      action: "03 EXPERIENCE",
+      action: "EXPERIENCE",
       subtitle: "High-Interaction PGL & Role-Play",
       icon: Gamepad2,
       highlights: [

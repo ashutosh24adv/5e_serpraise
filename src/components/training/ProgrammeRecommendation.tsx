@@ -49,12 +49,12 @@ export function ProgrammeRecommendation() {
                 onClick={() => setSelectedOptionId(opt.id)}
                 className={`p-6 text-left border transition-all duration-300 relative focus:outline-none cursor-pointer flex flex-col justify-between select-none ${
                   isSelected
-                    ? "bg-[#0B2A6B] text-[#EFE6D6] border-[#0B2A6B]"
+                    ? "bg-[#0B2A6B] text-white border-[#0B2A6B]"
                     : "bg-[#EFE6D6] text-[#0B2A6B] border-[#0B2A6B]/30 hover:border-[#0B2A6B]"
                 }`}
                 aria-pressed={isSelected}
               >
-                {/* Active Top Marker */}
+                {/* Active Top Vermilion Marker */}
                 {isSelected && (
                   <span className="absolute top-0 left-0 right-0 h-1 bg-[#D62839]" />
                 )}
@@ -63,7 +63,7 @@ export function ProgrammeRecommendation() {
                   <div className="flex items-center justify-between mb-3">
                     <span
                       className={`font-sans text-[11px] font-bold tracking-[0.16em] uppercase ${
-                        isSelected ? "text-[#A67C37]" : "text-[#D62839]"
+                        isSelected ? "text-[#E5B869]" : "text-[#D62839]"
                       }`}
                     >
                       Transformation Focus
@@ -89,7 +89,7 @@ export function ProgrammeRecommendation() {
 
                   <p
                     className={`font-sans text-xs mt-2 leading-relaxed ${
-                      isSelected ? "text-[#EFE6D6]/80" : "text-[#15151A]/75"
+                      isSelected ? "text-[#EFE6D6]" : "text-[#15151A]/75"
                     }`}
                   >
                     {opt.sublabel}
@@ -98,7 +98,7 @@ export function ProgrammeRecommendation() {
 
                 <div
                   className={`pt-4 mt-4 border-t text-[11px] font-sans uppercase font-bold tracking-wider flex items-center justify-between ${
-                    isSelected ? "border-[#EFE6D6]/20 text-[#A67C37]" : "border-[#A67C37]/30 text-[#0B2A6B]"
+                    isSelected ? "border-white/20 text-[#E5B869]" : "border-[#A67C37]/30 text-[#0B2A6B]"
                   }`}
                 >
                   <span>Flagship Fit</span>

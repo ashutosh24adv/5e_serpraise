@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { ContactHeader } from "@/components/contact/ContactHeader";
+import { Container } from "@/components/layout/Container";
+import { HeritageDivider } from "@/components/ui/HeritageDivider";
 import { ConsultationForm } from "@/components/contact/ConsultationForm";
 import { OfficeLocations } from "@/components/contact/OfficeLocations";
 import { EnterpriseCommitment } from "@/components/contact/EnterpriseCommitment";
@@ -16,7 +18,12 @@ export default function ContactPage() {
       {/* 1. Page Header: Direct Consultation */}
       <ContactHeader />
 
-      {/* 2. Request a Custom Proposal Form */}
+      {/* 2. Heritage Double-Rule Divider with Brass Pentagon */}
+      <Container size="wide">
+        <HeritageDivider />
+      </Container>
+
+      {/* 3. Request a Custom Proposal Form */}
       <ConsultationForm />
 
       {/* 3. Office Locations: India & Australia */}
