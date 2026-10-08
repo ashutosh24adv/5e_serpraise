@@ -46,11 +46,14 @@ interface ProgrammeShowcaseCardProps {
 
 function ProgrammeShowcaseCard({ item }: ProgrammeShowcaseCardProps) {
   const Icon = item.icon;
+  const isLillyOrCoppter = item.id === "lilly" || item.id === "coppter";
 
   return (
     <Link
       href={`/training#${item.id}`}
-      className={`${item.gridSpan} p-6 sm:p-7 bg-[#F7F1E6] border border-[#0B2A6B]/25 hover:border-[#0B2A6B] hover:shadow-sm transition-all duration-200 flex flex-col justify-between group select-none relative`}
+      className={`${item.gridSpan} p-6 sm:p-7 ${
+        isLillyOrCoppter ? "bg-[#FCF8F0]" : "bg-[#F7F1E6]"
+      } border border-[#0B2A6B]/25 hover:border-[#0B2A6B] hover:shadow-sm transition-all duration-200 flex flex-col justify-between group select-none relative`}
     >
       <div>
         {/* Top bar: Icon, Category & Focus */}
@@ -90,7 +93,7 @@ function ProgrammeShowcaseCard({ item }: ProgrammeShowcaseCardProps) {
           {item.duration}
         </span>
         <div className="inline-flex items-center gap-1.5 text-xs font-sans font-bold uppercase tracking-wider text-[#0B2A6B] group-hover:text-[#D62839] transition-colors">
-          <span>Explore Syllabus</span>
+          <span>Explore Training</span>
           <ArrowRight className="w-3.5 h-3.5 text-[#A67C37] group-hover:text-[#D62839] group-hover:translate-x-1 transition-all duration-200" />
         </div>
       </div>

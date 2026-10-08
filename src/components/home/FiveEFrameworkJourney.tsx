@@ -63,15 +63,16 @@ export function FiveEFrameworkJourney() {
     <section className="py-[84px] bg-[#EFE6D6] border-t border-[#A67C37]/40" id="framework">
       <Container size="wide">
         {/* Section Eyebrow & Header */}
-        <div className="mb-[36px] space-y-2">
+        <div className="text-center max-w-[760px] mx-auto space-y-3 mb-10">
           <SectionLabel
             title="THE FIVE PILLARS OF CAPABILITY"
             subtitle="The core intellectual framework uniting human purpose with enterprise capability."
+            align="center"
           />
           <h2 className="font-serif font-extrabold text-[clamp(30px,4.5vw,48px)] leading-[1.08] tracking-tight text-[#0B2A6B]">
             The 5E Architecture.
           </h2>
-          <p className="font-sans text-[16px] text-[#15151A]/85 max-w-[60ch]">
+          <p className="font-sans text-[16px] text-[#15151A]/85 leading-relaxed">
             An integrated continuum from individual purpose to organizational vitality. Click each pillar below to discover how 5e Serpraise builds enduring institutional capacity.
           </p>
         </div>

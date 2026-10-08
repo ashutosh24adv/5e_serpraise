@@ -3,7 +3,6 @@ import { HomeHero } from "@/components/home/HomeHero";
 import { ClientMarquee } from "@/components/ui/ClientMarquee";
 import { FiveEFrameworkJourney } from "@/components/home/FiveEFrameworkJourney";
 import { ProgrammeConsultationSelector } from "@/components/home/ProgrammeConsultationSelector";
-import { InteractiveMethodology } from "@/components/home/InteractiveMethodology";
 import { ODInteractiveExplorer } from "@/components/home/ODInteractiveExplorer";
 import { HomePurpose } from "@/components/home/HomePurpose";
 import { HeritageTimeline } from "@/components/home/HeritageTimeline";
@@ -31,10 +30,7 @@ export default function HomePage() {
       {/* Proprietary Training Programmes Consultation Selector */}
       <ProgrammeConsultationSelector />
 
-      {/* Training Methodology */}
-      <InteractiveMethodology />
-
-      {/* Organizational Development Interactive Explorer & 5-Stage Growth Journey */}
+      {/* Organizational Development & Transformation Interactive Interventions */}
       <ODInteractiveExplorer />
 
       {/* Our Thinking (4-Dimension Mission: Intellectually, Financially, Emotionally, Spiritually) */}

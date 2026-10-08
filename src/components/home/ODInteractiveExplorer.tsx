@@ -1,102 +1,85 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { Container } from "../layout/Container";
 import { SectionLabel } from "../ui/SectionLabel";
 import { odGroups } from "@/content/od-projects";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Layers } from "lucide-react";
+import { Layers, BrainCircuit, Activity, Gamepad2 } from "lucide-react";
 
 export function ODInteractiveExplorer() {
-  const [activeFilter, setActiveFilter] = useState<string>("ALL");
-  const shouldReduceMotion = useReducedMotion();
-
-  const filterCategories = [
-    { id: "ALL", label: "ALL INTERVENTIONS" },
-    { id: "01", label: "CULTURE & ENGAGEMENT" },
-    { id: "02", label: "PERFORMANCE & ASSESSMENT" },
-    { id: "03", label: "HR SYSTEMS & POLICIES" },
-    { id: "04", label: "BUSINESS MEETS & OUTBOUND" },
-  ];
-
   // Flatten all services from odGroups with group reference
-  const allServices = odGroups.flatMap((group) =>
+  const odServices = odGroups.flatMap((group) =>
     group.services.map((service) => ({
       ...service,
-      groupNumber: group.number,
       groupTitle: group.title,
+      href: "/od-projects",
+      icon: Layers,
     }))
   );
 
-  const filteredServices =
-    activeFilter === "ALL"
-      ? allServices
-      : allServices.filter((s) => s.groupNumber === activeFilter);
+  // Experiential & Pedagogical methodology items merged in
+  const experientialServices = [
+    {
+      title: "Respecting Adult Learning Principles",
+      tagline: "Self-directed discovery, immediate workplace relevance & cognitive engagement.",
+      groupTitle: "EXPERIENTIAL METHODOLOGY",
+      href: "/training",
+      icon: BrainCircuit,
+    },
+    {
+      title: "Pre & Post Capability Analysis",
+      tagline: "Diagnostic baseline assessment, targeted skill gaps & measurable post-program ROI.",
+      groupTitle: "EXPERIENTIAL METHODOLOGY",
+      href: "/training",
+      icon: Activity,
+    },
+    {
+      title: "High-Interaction PGL & Role-Play",
+      tagline: "Project-Game-Lecture simulations, leadership dilemmas & structured debriefs.",
+      groupTitle: "EXPERIENTIAL METHODOLOGY",
+      href: "/training",
+      icon: Gamepad2,
+    },
+  ];
+
+  const allServices = [...odServices, ...experientialServices];
 
   return (
     <section className="py-[84px] bg-[#EFE6D6] border-t border-[#A67C37]/40" id="od-explorer">
       <Container size="wide">
-        {/* Header */}
-        <div className="space-y-3 mb-10 max-w-[760px]">
+        {/* Centered Header */}
+        <div className="text-center max-w-[760px] mx-auto space-y-3 mb-10">
           <SectionLabel
             title="STRENGTHENING ORGANIZATIONS (E2 • ENRICH)"
             subtitle="Organizational Development, Culture Building & Institutional Systems"
+            align="center"
           />
           <h2 className="font-serif font-extrabold text-[clamp(28px,4.2vw,44px)] leading-[1.1] tracking-tight text-[#0B2A6B]">
-            What does your organization need?
+            What are you trying to transform?
           </h2>
           <p className="font-sans text-[16px] text-[#15151A]/85 leading-relaxed">
-            From comprehensive HR systems formulation to cultural transformation and SME retainerships, explore our verified OD interventions.
+            From comprehensive HR systems formulation and cultural alignment to experiential learning methodologies and SME retainerships, explore our verified interventions.
           </p>
         </div>
 
-        {/* Filter Pills */}
-        <div className="flex flex-wrap items-center gap-2 mb-8" role="tablist">
-          {filterCategories.map((cat) => {
-            const isActive = activeFilter === cat.id;
+        {/* OD & Transformation Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {allServices.map((service, idx) => {
+            const Icon = service.icon;
 
             return (
-              <button
-                key={cat.id}
-                onClick={() => setActiveFilter(cat.id)}
-                className={`px-4 py-2.5 font-sans text-xs font-extrabold tracking-wider uppercase transition-all duration-200 cursor-pointer focus:outline-none ${
-                  isActive
-                    ? "bg-[#0B2A6B] text-[#EFE6D6] border-2 border-[#0B2A6B]"
-                    : "bg-[#F7F1E6] text-[#0B2A6B] border border-[#A67C37]/40 hover:border-[#0B2A6B]"
-                }`}
-                role="tab"
-                aria-selected={isActive}
-              >
-                {cat.label}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Filtered Services Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-        >
-          <AnimatePresence>
-            {filteredServices.map((service, idx) => (
-              <motion.div
+              <div
                 key={`${service.title}-${idx}`}
-                layout
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: shouldReduceMotion ? 0 : 0.3 }}
                 className="p-6 bg-[#F7F1E6] border border-[#0B2A6B]/25 hover:border-[#0B2A6B] hover:shadow-xs transition-all duration-200 flex flex-col justify-between group"
               >
-                <Link href="/od-projects" className="block focus:outline-none">
+                <Link href={service.href} className="block focus:outline-none">
                   {/* 1. Category */}
                   <div className="flex items-center justify-between pb-3 border-b border-[#A67C37]/35 mb-3">
                     <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#D62839]">
                       {service.groupTitle}
                     </span>
-                    <Layers className="w-4 h-4 text-[#A67C37] group-hover:text-[#0B2A6B] transition-colors" />
+                    <Icon className="w-4 h-4 text-[#A67C37] group-hover:text-[#0B2A6B] transition-colors" />
                   </div>
 
                   {/* 2. Project Name */}
@@ -111,10 +94,10 @@ export function ODInteractiveExplorer() {
                     </div>
                   )}
                 </Link>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+              </div>
+            );
+          })}
+        </div>
       </Container>
     </section>
   );

@@ -15,15 +15,16 @@ export function HeritageTimeline() {
     <section className="py-[84px] bg-[#EFE6D6] border-t border-[#A67C37]/40" id="about">
       <Container size="wide">
         {/* Section Heading */}
-        <div className="mb-[36px] space-y-3">
+        <div className="text-center max-w-[760px] mx-auto space-y-3 mb-10">
           <SectionLabel
             title="HERITAGE &amp; INSTITUTIONAL TRUST"
             subtitle="Two decades of verified practice in human and organizational capability."
+            align="center"
           />
           <h2 className="font-serif font-extrabold text-[clamp(30px,4.5vw,48px)] leading-[1.08] tracking-tight text-[#0B2A6B]">
             Over two decades of institutional trust.
           </h2>
-          <p className="font-sans text-[16px] text-[#15151A]/85 max-w-[62ch]">
+          <p className="font-sans text-[16px] text-[#15151A]/85 leading-relaxed">
             Founded in 2003 in India and active in Australia, 5e Serpraise has partnered with progressive corporations to build enduring human and organizational capability.
           </p>
         </div>

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { customCategories } from "@/content/custom-programs";
 import { Container } from "../layout/Container";
+import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, TrendingUp, Target, Users, Briefcase } from "lucide-react";
@@ -27,18 +28,16 @@ export function CustomCategorySection() {
   return (
     <section className="py-[80px] bg-[#EFE6D6] border-t border-[#A67C37]/40" id="categories">
       <Container size="wide">
-        {/* Section Header */}
-        <div className="mb-[36px] space-y-2">
-          <div className="flex items-center gap-2">
-            <span className="w-3 h-[1.5px] bg-[#A67C37]" />
-            <span className="font-sans text-[11px] font-extrabold tracking-[0.2em] uppercase text-[#0B2A6B]">
-              THE BESPOKE CURRICULUM ARCHITECTURE
-            </span>
-          </div>
+        {/* Centered Section Header */}
+        <div className="text-center max-w-[760px] mx-auto space-y-3 mb-10">
+          <SectionLabel
+            title="THE BESPOKE CURRICULUM ARCHITECTURE"
+            align="center"
+          />
           <h2 className="font-serif font-extrabold text-[clamp(30px,4.5vw,48px)] leading-[1.08] tracking-tight text-[#0B2A6B]">
             Custom Program Architecture.
           </h2>
-          <p className="font-sans text-[16px] text-[#15151A]/85 max-w-[65ch]">
+          <p className="font-sans text-[16px] text-[#15151A]/85 leading-relaxed">
             Modular capability frameworks crafted around your organizational reality. Click each domain below to explore specialized corporate workshops.
           </p>
         </div>
@@ -63,20 +62,13 @@ export function CustomCategorySection() {
                   <span className="absolute top-0 left-0 right-0 h-1.5 bg-[#D62839]" />
                 )}
 
-                <div className="flex items-center justify-between mb-2">
+                <div className="mb-2">
                   <span
                     className={`font-serif font-extrabold text-2xl ${
                       isActive ? "text-[#D62839]" : "text-[#A67C37]"
                     }`}
                   >
                     {category.number}
-                  </span>
-                  <span
-                    className={`font-sans text-[10px] font-bold tracking-[0.2em] uppercase ${
-                      isActive ? "text-[#EFE6D6]/70" : "text-[#15151A]/60"
-                    }`}
-                  >
-                    MODULE
                   </span>
                 </div>
 

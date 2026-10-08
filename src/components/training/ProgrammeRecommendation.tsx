@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container } from "../layout/Container";
 import { Button } from "../ui/Button";
 import { recommendationOptions, corePrograms } from "@/content/programmes";
@@ -9,6 +9,37 @@ import { Check, ArrowRight, Sparkles, Clock, Target, Users } from "lucide-react"
 
 export function ProgrammeRecommendation() {
   const [selectedOptionId, setSelectedOptionId] = useState("individual");
+
+  useEffect(() => {
+    const handleHashSync = () => {
+      const hash = window.location.hash.toLowerCase().replace(/^#/, "").trim();
+      if (!hash) return;
+
+      const matched = recommendationOptions.find(
+        (opt) =>
+          opt.targetProgramId.toLowerCase() === hash ||
+          opt.id.toLowerCase() === hash
+      );
+
+      if (matched) {
+        setSelectedOptionId(matched.id);
+        const sectionEl = document.getElementById("recommendation");
+        if (sectionEl) {
+          sectionEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    };
+
+    const timer = setTimeout(handleHashSync, 100);
+    window.addEventListener("hashchange", handleHashSync);
+    window.addEventListener("popstate", handleHashSync);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("hashchange", handleHashSync);
+      window.removeEventListener("popstate", handleHashSync);
+    };
+  }, []);
 
   const selectedOption =
     recommendationOptions.find((o) => o.id === selectedOptionId) ||
@@ -47,38 +78,62 @@ export function ProgrammeRecommendation() {
             return (
               <button
                 key={opt.id}
-                onClick={() => setSelectedOptionId(opt.id)}
-                className="p-6 text-left border border-[#0B2A6B]/30 hover:border-[#0B2A6B] bg-[#EFE6D6] text-[#0B2A6B] transition-colors duration-200 relative focus:outline-none cursor-pointer flex flex-col justify-between select-none"
+                id={opt.targetProgramId}
+                onClick={() => {
+                  setSelectedOptionId(opt.id);
+                  if (typeof window !== "undefined") {
+                    window.history.replaceState(null, "", `#${opt.targetProgramId}`);
+                  }
+                }}
+                className={`p-6 text-left transition-all duration-200 relative focus:outline-none cursor-pointer flex flex-col justify-between select-none scroll-mt-28 ${
+                  isSelected
+                    ? "bg-[#D62839] border-2 border-[#D62839] shadow-md text-white"
+                    : "bg-[#EFE6D6] border-2 border-[#0B2A6B]/20 hover:border-[#0B2A6B]/50 hover:bg-[#F7F1E6]/30 text-[#0B2A6B]"
+                }`}
                 aria-pressed={isSelected}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="font-sans text-[11px] font-bold tracking-[0.16em] uppercase text-[#D62839]">
-                      Transformation Focus
-                    </span>
+                  <div className="flex items-start justify-between gap-3 mb-2.5">
+                    <h3
+                      className={`font-serif font-bold text-[19px] leading-snug ${
+                        isSelected ? "text-white" : "text-[#0B2A6B]"
+                      }`}
+                    >
+                      {opt.label}
+                    </h3>
                     <div
-                      className={`w-5 h-5 rounded-none border flex items-center justify-center transition-colors duration-200 ${
+                      className={`w-5 h-5 rounded-none border flex-shrink-0 flex items-center justify-center transition-colors duration-200 mt-0.5 ${
                         isSelected
-                          ? "border-[#D62839] bg-[#D62839] text-white"
+                          ? "border-white bg-white text-[#D62839]"
                           : "border-[#0B2A6B]/40 bg-transparent"
                       }`}
                     >
-                      {isSelected && <Check className="w-3.5 h-3.5" />}
+                      {isSelected && <Check className="w-3.5 h-3.5 stroke-[2.5]" />}
                     </div>
                   </div>
 
-                  <h3 className="font-serif font-bold text-[19px] leading-snug text-[#0B2A6B]">
-                    {opt.label}
-                  </h3>
-
-                  <p className="font-sans text-xs mt-2 leading-relaxed text-[#15151A]/75">
+                  <p
+                    className={`font-sans text-xs leading-relaxed ${
+                      isSelected ? "text-[#F7F1E6]/90" : "text-[#15151A]/75"
+                    }`}
+                  >
                     {opt.sublabel}
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-[#A67C37]/30 text-[11px] font-sans uppercase font-bold tracking-wider text-[#0B2A6B] flex items-center justify-between">
+                <div
+                  className={`pt-4 mt-4 border-t text-[11px] font-sans uppercase font-bold tracking-wider flex items-center justify-between ${
+                    isSelected
+                      ? "border-white/20 text-white"
+                      : "border-[#A67C37]/30 text-[#0B2A6B]"
+                  }`}
+                >
                   <span>Flagship: {targetProg?.name || "Program"}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight
+                    className={`w-3.5 h-3.5 ${
+                      isSelected ? "text-white" : "text-[#0B2A6B]"
+                    }`}
+                  />
                 </div>
               </button>
             );
