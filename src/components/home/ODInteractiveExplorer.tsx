@@ -6,7 +6,7 @@ import { Container } from "../layout/Container";
 import { SectionLabel } from "../ui/SectionLabel";
 import { odGroups } from "@/content/od-projects";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Layers, ArrowUpRight } from "lucide-react";
+import { Layers } from "lucide-react";
 
 export function ODInteractiveExplorer() {
   const [activeFilter, setActiveFilter] = useState<string>("ALL");
@@ -88,9 +88,10 @@ export function ODInteractiveExplorer() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: shouldReduceMotion ? 0 : 0.3 }}
-                className="p-6 bg-[#F7F1E6] border border-[#0B2A6B]/25 hover:border-[#0B2A6B] transition-colors flex flex-col justify-between group"
+                className="p-6 bg-[#F7F1E6] border border-[#0B2A6B]/25 hover:border-[#0B2A6B] hover:shadow-xs transition-all duration-200 flex flex-col justify-between group"
               >
-                <div>
+                <Link href="/od-projects" className="block focus:outline-none">
+                  {/* 1. Category */}
                   <div className="flex items-center justify-between pb-3 border-b border-[#A67C37]/35 mb-3">
                     <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#D62839]">
                       {service.groupTitle}
@@ -98,31 +99,18 @@ export function ODInteractiveExplorer() {
                     <Layers className="w-4 h-4 text-[#A67C37] group-hover:text-[#0B2A6B] transition-colors" />
                   </div>
 
-                  <h3 className="font-serif font-extrabold text-[20px] text-[#0B2A6B] leading-snug">
+                  {/* 2. Project Name */}
+                  <h3 className="font-serif font-extrabold text-[20px] text-[#0B2A6B] leading-snug group-hover:text-[#D62839] transition-colors">
                     {service.title}
                   </h3>
 
-                  <div className="font-serif italic text-xs text-[#A67C37] mt-1">
-                    {service.tagline}
-                  </div>
-
-                  <p className="font-sans text-xs sm:text-[13px] text-[#15151A]/85 mt-2.5 leading-relaxed line-clamp-3">
-                    {service.description}
-                  </p>
-                </div>
-
-                <div className="pt-4 mt-4 border-t border-[#A67C37]/25 flex items-center justify-between">
-                  <span className="font-serif italic text-xs text-[#A67C37]">
-                    5e Serpraise OD Standard
-                  </span>
-                  <Link
-                    href="/od-projects"
-                    className="inline-flex items-center gap-1 text-xs font-sans font-bold text-[#0B2A6B] group-hover:text-[#D62839] transition-colors"
-                  >
-                    <span>View Detail</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
+                  {/* 3. Italic Subtitle */}
+                  {service.tagline && (
+                    <div className="font-serif italic text-xs text-[#15151A]/80 mt-1.5 leading-relaxed">
+                      {service.tagline}
+                    </div>
+                  )}
+                </Link>
               </motion.div>
             ))}
           </AnimatePresence>

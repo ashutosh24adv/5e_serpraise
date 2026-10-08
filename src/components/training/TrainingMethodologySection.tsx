@@ -6,7 +6,7 @@ import { trainingMethodologies } from "@/content/programmes";
 
 export function TrainingMethodologySection() {
   return (
-    <section className="py-[80px] bg-[#F7F1E6] border-t border-b border-[#A67C37]/40">
+    <section className="py-[80px] bg-[#EFE6D6] border-t border-b border-[#A67C37]/40">
       <Container size="wide">
         {/* Section Heading: sentence case, ends with a period */}
         <div className="mb-[36px] text-center max-w-[680px] mx-auto space-y-2">

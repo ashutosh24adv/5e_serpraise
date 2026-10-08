@@ -43,8 +43,8 @@ export function Logo({
             SERPRAISE
           </span>
         </div>
-        <span className="font-serif italic text-[11px] text-[#A67C37] mt-0.5">
-          Est. 2003
+        <span className="font-serif italic text-[11px] text-[#D62839] mt-0.5">
+          Enriching Everyone
         </span>
       </div>
     </Link>

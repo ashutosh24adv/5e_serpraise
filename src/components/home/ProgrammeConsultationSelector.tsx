@@ -1,54 +1,109 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { Container } from "../layout/Container";
 import { SectionLabel } from "../ui/SectionLabel";
-import { Button } from "../ui/Button";
 import { corePrograms } from "@/content/programmes";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ArrowRight, User, Users, ShieldCheck, TrendingUp, Clock, Check } from "lucide-react";
+import {
+  ArrowRight,
+  User,
+  Users,
+  ShieldCheck,
+  TrendingUp,
+} from "lucide-react";
 
-export function ProgrammeConsultationSelector() {
-  const [selectedGoal, setSelectedGoal] = useState<"myself" | "team" | "leaders" | "business">("myself");
-  const shouldReduceMotion = useReducedMotion();
+const flagships = [
+  {
+    ...corePrograms[0], // LILLY
+    focus: "Self Growth",
+    icon: User,
+    gridSpan: "col-span-12 md:col-span-6 lg:col-span-7",
+  },
+  {
+    ...corePrograms[1], // GOTEL
+    focus: "Team Dynamics",
+    icon: Users,
+    gridSpan: "col-span-12 md:col-span-6 lg:col-span-5",
+  },
+  {
+    ...corePrograms[2], // SALAM
+    focus: "Executive Leadership",
+    icon: ShieldCheck,
+    gridSpan: "col-span-12 md:col-span-6 lg:col-span-5",
+  },
+  {
+    ...corePrograms[3], // COPPTER
+    focus: "Enterprise Growth",
+    icon: TrendingUp,
+    gridSpan: "col-span-12 md:col-span-6 lg:col-span-7",
+  },
+];
 
-  const options = [
-    {
-      id: "myself" as const,
-      label: "Self Growth",
-      sublabel: "Personal Purpose & Self-Mastery",
-      icon: User,
-      programId: "lilly",
-    },
-    {
-      id: "team" as const,
-      label: "Team Dynamics",
-      sublabel: "Goal Orientation & Synergy",
-      icon: Users,
-      programId: "gotel",
-    },
-    {
-      id: "leaders" as const,
-      label: "Executive Leadership",
-      sublabel: "Stewardship & Leadership Aligning",
-      icon: ShieldCheck,
-      programId: "salam",
-    },
-    {
-      id: "business" as const,
-      label: "Enterprise Growth",
-      sublabel: "People & Process Confluence",
-      icon: TrendingUp,
-      programId: "coppter",
-    },
-  ];
+interface ProgrammeShowcaseCardProps {
+  item: (typeof flagships)[number];
+}
 
-  const currentOption = options.find((o) => o.id === selectedGoal) || options[0];
-  const matchedProgram = corePrograms.find((p) => p.id === currentOption.programId) || corePrograms[0];
+function ProgrammeShowcaseCard({ item }: ProgrammeShowcaseCardProps) {
+  const Icon = item.icon;
 
   return (
-    <section className="py-[84px] bg-[#F7F1E6] border-t border-[#A67C37]/40" id="programme-selector">
+    <Link
+      href={`/training#${item.id}`}
+      className={`${item.gridSpan} p-6 sm:p-7 bg-[#F7F1E6] border border-[#0B2A6B]/25 hover:border-[#0B2A6B] hover:shadow-sm transition-all duration-200 flex flex-col justify-between group select-none relative`}
+    >
+      <div>
+        {/* Top bar: Icon, Category & Focus */}
+        <div className="flex items-start justify-between gap-4 pb-3 border-b border-[#A67C37]/30 mb-4">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-[#A67C37]/10 text-[#A67C37] border border-[#A67C37]/25 flex-shrink-0">
+              <Icon className="w-4 h-4" />
+            </div>
+            <span className="font-sans font-bold text-[11px] uppercase tracking-[0.16em] text-[#D62839]">
+              {item.category}
+            </span>
+          </div>
+          <span className="font-sans text-[10px] font-extrabold tracking-widest uppercase text-[#15151A]/60">
+            {item.focus}
+          </span>
+        </div>
+
+        {/* Title & Subtitle / Full Name */}
+        <div>
+          <h3 className="font-serif font-extrabold text-[24px] sm:text-[28px] text-[#0B2A6B] leading-none tracking-tight group-hover:text-[#D62839] transition-colors">
+            {item.name}.
+          </h3>
+          <div className="font-serif italic text-xs sm:text-[13px] text-[#15151A]/80 mt-1.5 leading-snug">
+            {item.fullName}
+          </div>
+        </div>
+
+        {/* Description / Positioning */}
+        <p className="font-sans text-[13px] sm:text-[14px] text-[#15151A]/80 leading-relaxed mt-3.5 line-clamp-3">
+          {item.positioning}
+        </p>
+      </div>
+
+      {/* Footer Meta & Explore Link */}
+      <div className="pt-4 mt-5 border-t border-[#A67C37]/25 flex items-center justify-between">
+        <span className="font-sans text-xs text-[#0B2A6B] font-semibold">
+          {item.duration}
+        </span>
+        <div className="inline-flex items-center gap-1.5 text-xs font-sans font-bold uppercase tracking-wider text-[#0B2A6B] group-hover:text-[#D62839] transition-colors">
+          <span>Explore Syllabus</span>
+          <ArrowRight className="w-3.5 h-3.5 text-[#A67C37] group-hover:text-[#D62839] group-hover:translate-x-1 transition-all duration-200" />
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+export function ProgrammeConsultationSelector() {
+  return (
+    <section
+      className="py-[84px] bg-[#EFE6D6] border-t border-[#A67C37]/40"
+      id="flagship-programmes"
+    >
       <Container size="wide">
         {/* Header */}
         <div className="text-center max-w-[760px] mx-auto space-y-3 mb-10">
@@ -61,149 +116,16 @@ export function ProgrammeConsultationSelector() {
             Proprietary Training Programmes
           </h2>
           <p className="font-sans text-[16px] text-[#15151A]/85 leading-relaxed">
-            Explore our proprietary programmes designed for individuals, teams, leaders, and organizations.
+            Explore our proprietary programmes designed for individuals, teams,
+            leaders, and organizations.
           </p>
         </div>
 
-        {/* 4 Interactive Selector Choices */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 max-w-[1020px] mx-auto">
-          {options.map((option) => {
-            const isSelected = selectedGoal === option.id;
-            const Icon = option.icon;
-
-            return (
-              <button
-                key={option.id}
-                onClick={() => setSelectedGoal(option.id)}
-                className={`p-5 sm:p-6 text-left border transition-all duration-300 relative focus:outline-none cursor-pointer flex flex-col justify-between ${
-                  isSelected
-                    ? "bg-[#0B2A6B] text-[#EFE6D6] border-[#0B2A6B]"
-                    : "bg-[#EFE6D6] text-[#0B2A6B] border-[#0B2A6B]/30 hover:border-[#0B2A6B]"
-                }`}
-                role="tab"
-                aria-selected={isSelected}
-              >
-                {isSelected && (
-                  <span className="absolute top-0 left-0 right-0 h-1 bg-[#D62839]" />
-                )}
-
-                <div className="flex items-center justify-between mb-3">
-                  <Icon
-                    className={`w-5 h-5 ${
-                      isSelected ? "text-[#D62839]" : "text-[#A67C37]"
-                    }`}
-                  />
-                  <span
-                    className={`font-sans text-[10px] font-bold tracking-widest uppercase ${
-                      isSelected ? "text-[#EFE6D6]/70" : "text-[#15151A]/60"
-                    }`}
-                  >
-                    FOCUS
-                  </span>
-                </div>
-
-                <div>
-                  <div
-                    className={`font-sans font-extrabold text-[16px] tracking-wide ${
-                      isSelected ? "text-white" : "text-[#0B2A6B]"
-                    }`}
-                  >
-                    {option.label}
-                  </div>
-                  <div
-                    className={`font-serif italic text-xs mt-1 ${
-                      isSelected ? "text-[#EFE6D6]/85" : "text-[#15151A]/75"
-                    }`}
-                  >
-                    {option.sublabel}
-                  </div>
-                </div>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Dynamic Consultative Recommendation Card */}
-        <div className="mt-8 max-w-[1020px] mx-auto bg-[#EFE6D6] border border-[#0B2A6B]/35 p-7 sm:p-10 relative overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={matchedProgram.id}
-              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -12 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-            >
-              {/* Left Consultation Overview */}
-              <div className="lg:col-span-8 space-y-4">
-                <div className="flex items-center gap-2.5">
-                  <span className="font-serif font-extrabold text-2xl sm:text-3xl text-[#D62839]">
-                    {matchedProgram.name}
-                  </span>
-                  <span className="w-1.5 h-1.5 bg-[#A67C37]" />
-                  <span className="font-sans font-bold text-xs uppercase tracking-[0.2em] text-[#0B2A6B]">
-                    RECOMMENDED FLAGSHIP INTERVENTION
-                  </span>
-                </div>
-
-                <div>
-                  <h3 className="font-serif font-extrabold text-[28px] sm:text-[34px] text-[#0B2A6B] leading-tight">
-                    {matchedProgram.name}.
-                  </h3>
-                  <div className="font-serif italic text-base sm:text-lg text-[#15151A]/85 mt-0.5">
-                    {matchedProgram.fullName}
-                  </div>
-                  <div className="font-sans font-extrabold text-xs uppercase tracking-[0.16em] text-[#D62839] mt-1">
-                    {matchedProgram.category}
-                  </div>
-                </div>
-
-                <p className="font-sans text-[15px] sm:text-[16px] text-[#15151A] leading-[1.6]">
-                  {matchedProgram.description}
-                </p>
-
-                {/* Key Focus Highlights */}
-                <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {matchedProgram.keyTopics.slice(0, 4).map((topic, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-xs sm:text-[13px] font-sans text-[#15151A]/85">
-                      <Check className="w-4 h-4 text-[#0B2A6B] flex-shrink-0 mt-0.5" />
-                      <span>{topic}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="pt-4 flex flex-wrap items-center gap-5">
-                  <Button href={`/training#${matchedProgram.id}`} variant="primary">
-                    Discover {matchedProgram.name}
-                  </Button>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-1.5 text-[#0B2A6B] font-sans font-bold text-[14px] underline decoration-[#A67C37] decoration-2 underline-offset-[5px] hover:text-[#D62839] transition-colors"
-                  >
-                    <span>Request Programme Outline</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-
-              {/* Right Summary Badge */}
-              <div className="lg:col-span-4 flex justify-center lg:justify-end">
-                <div className="p-7 bg-[#F7F1E6] border border-[#A67C37]/50 w-full max-w-[280px] text-center space-y-3">
-                  <div className="flex items-center justify-center gap-2 text-xs font-sans font-bold uppercase tracking-wider text-[#0B2A6B]">
-                    <Clock className="w-4 h-4 text-[#A67C37]" />
-                    <span>{matchedProgram.duration}</span>
-                  </div>
-                  <div className="w-8 h-[1px] bg-[#A67C37] mx-auto" />
-                  <div className="font-sans text-xs text-[#15151A]/80 leading-snug">
-                    <strong>Ideal For:</strong> {matchedProgram.targetAudience}
-                  </div>
-                  <div className="pt-2 border-t border-[#A67C37]/30 text-[11px] font-serif italic text-[#A67C37]">
-                    Experiential Workshop &bull; PGL Methods
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+        {/* 4 Flagship Programmes Staggered Grid (7/5 -> 5/7) */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 max-w-[1080px] mx-auto">
+          {flagships.map((prog) => (
+            <ProgrammeShowcaseCard key={prog.id} item={prog} />
+          ))}
         </div>
       </Container>
     </section>

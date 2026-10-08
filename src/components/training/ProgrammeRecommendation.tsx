@@ -19,7 +19,7 @@ export function ProgrammeRecommendation() {
     corePrograms[0];
 
   return (
-    <section className="py-[80px] bg-[#F7F1E6] border-t border-b border-[#A67C37]/40 scroll-mt-24" id="programs">
+    <section className="py-[80px] bg-[#EFE6D6] border-t border-b border-[#A67C37]/40 scroll-mt-24" id="recommendation">
       <Container size="wide">
         {/* Section Heading */}
         <div className="mb-[36px] text-center max-w-[700px] mx-auto space-y-2">
